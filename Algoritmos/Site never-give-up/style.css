@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    Início cabeçalho
+*/
+
+.conteudo_total {
+    background-color: #3c793c;
+}
+
+.header {
+    padding: 50px;
+    height: 180px;
+    background-color: #222222;
+}
+
+.header .container {
+    margin-top: 50px;
+    border-radius: 3px;
+    height: 100px;
+    background-color: #3c793c;
+}
+
+.header .container img {
+    transition: background 0.4s;
+    padding-left: 50px;
+    height: 220px;
+    width: 220px;
+}
+
+.header .container img:hover {
+    background-color:#3c793c ;
+}
+
+.header ul {
+    float: right;
+    list-style: none;
+}
+
+.header li {
+    transition: background 0.4s;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    padding: 41px;
+}
+
+.header a {
+    border-radius: 5px;
+    padding: 32px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.header li:hover {
+    background-color:#222222 ;
+}
+
+.header a:hover {
+    color: #ffffff;
+}
+
+/*
+    Fim cabeçalho
+*/
+
+.div_never_give_up {
+    border-radius: 3px;
+    margin: 10px 10px 10px 10px;
+    width: 70%;
+    padding: 180px;
+    height: 300px;
+    background-image: url('kakashi-raposa.jpg');
+    background-size: cover ;
+}
+
+.div_never_give_up .container {
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+.div_never_give_up .container h1 {
+    font-size: 50px;
+}
+
+.div_never_give_up .container span {
+    font-size: 27px;
+}
+
+.div_naruto {
+    border-radius: 3px;
+    margin: 10px 10px 10px 135px;
+    width: 90%;
+    height: 500px;
+    background-color: #222222;
+}
+
+.div_naruto .container {
+    margin-top: 50px;
+    float: left;
+    width: 40%;
+    background-image: url('naruto-sad.jpg');
+    background-size: cover;
+    height:  400px;
+}
+
+.div_naruto .naruto_classico {
+    padding: 15px;
+    border-radius: 3px;
+    text-align: center;
+    margin-right: 50px;
+    margin-top: 100px;
+    width: 50%;
+    float: right;
+    height: 300px;
+    background-color:#3c793c73 ;
+}
+
+.div_naruto .naruto_classico span {
+    padding-top:50px ;
+    font-size: 20px;
+    color: white;
+}
+
+.div_naruto_hokage {
+    border-radius: 3px;
+    margin: 10px 10px 10px 10px;
+    width: 75%;
+    padding: 150px;
+    height: 300px;
+    background-image: url('naruto-hokage.jpg');
+    background-size: 38%;
+}
+
+.div_naruto_hokage .container {
+    padding: 30px;
+    text-align: center;
+    border-radius: 3px;
+    height: 300px;
+    background-color: #222222b6;
+}
+
+.div_naruto_hokage .container span {
+    color: white;
+    font-size: 30px;
+}
+
+.footer {
+    text-align: center;
+    height: 300px;
+    background-color: #222222;
+}
+
+
+
+.footer .container1 {
+    float: left;
+    margin-left: 25px;
+}
+
+
+.footer .container3 {
+    float: right;
+    margin-right: 25px;
+}
+
+.footer .container1 , .container3, .container2 {
+    color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 80px;
+    display: inline-block;
+    height:150px ; 
+    width: 200px;
+    background-color: #3c793c;
+}
+
+.footer .container1 img {
+    width: 150px;
+    height: 150px;
+}
+
+.footer .container2 ul li{
+    font-family: 'Courier New', Courier, monospace;
+    transition: color 0.3s;
+    font-size: 17.5px;
+    cursor: pointer;
+    margin-left:15px;
+    padding: 13px;
+}
+
+.footer .container2 ul li:hover {
+    color: #222222;
+}
+
+.footer .container3 img {
+    transition: background 0.4s;
+    border-radius: 5px;
+    width: 178px;
+    height: 147px;
+}
+
+.footer .container3 img:hover {
+    background-color: #222222;
+}
