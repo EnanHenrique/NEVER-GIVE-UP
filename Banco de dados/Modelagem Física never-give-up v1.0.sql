@@ -1,17 +1,27 @@
 create database NeverGiveUp;
 use NeverGiveUp;
 
+drop database nevergiveup;
+
 create table Usuario (
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(40),
+    nome VARCHAR(45),
 	login VARCHAR(40),
     senha VARCHAR(16),
+    email VARCHAR(40),
     dataNascimento DATE,
     fkAutoConhecimento int,
     foreign key (fkAutoConhecimento) references AutoConhecimento (idAutoConhecimento),
     fkPessoaMelhor int,
     foreign key (fkPessoaMelhor) references PessoaMelhor (idPessoaMelhor)
 );
+
+desc Usuario;
+
+select * from Usuario where login = 'enanlinares' and senha ='Enan@011';
+select * from Usuario;
+
+alter table Usuario modify column email varchar(40) null;
 
 insert into usuario value (null, 'enan.oliveira@bandtec.com.br', 'enanlinares', 'Enan@011', '2000-02-08', 1000, 10000);
 
