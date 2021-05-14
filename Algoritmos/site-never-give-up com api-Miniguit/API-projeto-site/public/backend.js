@@ -1,12 +1,13 @@
 
                                     // VERIFICACAO DE CADASTRO
 
-function botao_cadastrar() {
-    let nome = idNome.value;
-    let email = idEmail.value;
-    let dataNascimento = idDataNascimento.value;
-    let senha = idSenha.value;
-    let senha2 = idConfirmarSenha.value;
+function verificacao_botao_cadastrar() {
+    var nome = idNome.value;
+    var email = idEmail.value;
+    var login = idLogin.value;
+    var dataNascimento = idDataNascimento.value;
+    var senha = idSenha.value;
+    var senha2 = idConfirmarSenha.value;
 
     if (nome == "") {
         alert("Digite um nome de usuário!");
@@ -16,12 +17,24 @@ function botao_cadastrar() {
         alert("Digite pelo menos 4 caracteres no nome de usuario");
     }
 
+    else if (login == "") {
+        alert("Digite um nome de login!");
+    }
+
+    else if (login.length < 4) {
+        alert("Digite pelo menos 4 caracteres no campo de login!");
+    }
+
     else if (email.length < 10) {
         alert("E-mail muito curto");
     }
     
     else if (email.indexOf("@") < 0) {
         alert("E-mail não possui '@' ");
+    }
+
+    else if (email.indexOf(".com") < 0) {
+        alert("E-mail não possui '.com', como assim?");
     }
 
     else if (dataNascimento == "") {
@@ -38,7 +51,29 @@ function botao_cadastrar() {
 
     else {
         alert("Cadastro realizado com sucesso!");
-        window.location.href = "login.html";
     }
 }
 
+                                    // VERIFICACAO DE LOGIN
+
+function verificar_botao_login() {
+    var login = idLogin.value;
+    let senha = idSenha.value;
+
+    if (login == "") {
+        alert("Digite um nome de login!");
+    }
+
+    else if (login.length < 4) {
+        alert("Digite pelo menos 4 caracteres no campo de login!");
+    }
+
+    else if (senha.length < 6) {
+        alert("Senha muito curta!");
+    }
+
+    else {
+        alert("Cadastro realizado com sucesso!");
+    }
+
+}   

@@ -24,12 +24,12 @@
 
                 <form class="formulario_login" id="form_login" method="post" onsubmit="return entrar()">
                     Login:
-                    <input placeholder="Digite seu nome de login cadastrado" autocomplete="off" type="text" class="input-padrao" name="login">
+                    <input placeholder="Digite seu nome de login cadastrado" autocomplete="off" type="text" class="input-padrao" id="idLogin" name="login">
                     <br>
                     Senha:
-                    <input placeholder="****" type="password" class="input-padrao" name="senha">
+                    <input placeholder="****" type="password" class="input-padrao" id="idSenha" name="senha">
                     <br>
-                    <button id="btn_entrar" class="botao_login">Entrar</button>
+                    <button onclick="verificar_botao_login()" id="btn_entrar" class="botao_login">Entrar</button>
                 </form>
 
                 <div class="extra">
