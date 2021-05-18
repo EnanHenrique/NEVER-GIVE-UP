@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Never Give Up</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="conteudo_total">
+    <div id="cabecalho" class="header">
+        <div class="container">
+            <img src="img/LOGO.png" alt="Logo da Never Give Up">
+            <ul>
+                <li> <a href="index.html">HOME</a> </li>
+                <li> <a href="forum.html">Fórum</a> </li>
+                <li> <a href="sobre.html">SOBRE</a> </li>
+                <li class="current_page"> <a href="cadastro.html">CADASTRO</a> </li>
+                <li> <a href="login.html">LOGIN</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <form class="formulario_cadastro" id="form_cadastro" method="post" onsubmit="return cadastrar()">
+        <h1>Cadastro</h1>
+        <label for="nome">Seu nome</label>
+        <input autocomplete="off" type="text" placeholder="Digite seu nome" id="idNome" name="nome">
+
+        <label for="login">Nome de login</label>
+        <input type="text" autocomplete="off" placeholder="Digite seu nome de login" id="idLogin" name="login">
+
+        <label for="email">E-mail</label>
+        <input autocomplete="off" type="text" placeholder="Digite seu e-mail" id="idEmail" name="email">
+
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input autocomplete="off" type="date" placeholder="Digite sua data de nascimento" id="idDataNascimento"
+            name="dataNascimento">
+
+        <label for="senha">Senha</label>
+        <input autocomplete="off" type="password" id="idSenha" placeholder="Digite sua senha" name="senha">
+
+        <label>Confirme sua Senha</label>
+        <input autocomplete="off" type="password" id="idConfirmarSenha" placeholder="Digite sua senha novamente">
+
+        <input onclick="verificacao_botao_cadastrar()" type="submit" id="btn_entrar" value="Cadastrar"
+            class="botao_cadastrar">
+
+    </form>
+
+    <img src="img/loading-img.gif" id="img_aguarde"
+        style="display: none; width:150px; margin: auto; margin-bottom: 50px;">
+
+    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+        Erro no cadastro
+    </div>
+
+
+    <div class="footer">
+        <div class="container1">
+            <img src="img/LOGO.png" alt="Logo da Never Give Up">
+        </div>
+
+        <div class="container2">
+            <ul>
+                <li> Fale conosco </li>
+                <li> Tire suas dúvidas </li>
+                <li> Dê sua opinião </li>
+            </ul>
+        </div>
+
+        <div class="container3">
+            <a href="cadastro.html#cabecalho"> <img src="img/ancora.svg" alt="Voltar ao topo"> </a>
+        </div>
+    </div>
+
+    <script src="backend.js"></script>
+
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
+            var nome = idNome.value;
+            var email = idEmail.value;
+            var login = idLogin.value;
+            var dataNascimento = idDataNascimento.value;
+            var senha = idSenha.value;
+            var senha2 = idConfirmarSenha.value;
+
+            if (nome == "") {
+                alert("Digite um nome de usuário!");
+            }
+
+            else if (nome.length < 4) {
+                alert("Digite pelo menos 4 caracteres no nome de usuario");
+            }
+
+            else if (login == "") {
+                alert("Digite um nome de login!");
+            }
+
+            else if (login.length < 4) {
+                alert("Digite pelo menos 4 caracteres no campo de login!");
+            }
+
+            else if (email.length < 10) {
+                alert("E-mail muito curto");
+            }
+
+            else if (email.indexOf("@") < 0) {
+                alert("E-mail não possui '@' ");
+            }
+
+            else if (email.indexOf(".com") < 0) {
+                alert("E-mail não possui '.com', como assim?");
+            }
+
+            else if (dataNascimento == "") {
+                alert("Insira a data de nascimento");
+            }
+
+            else if (senha.length < 6) {
+                alert("Senha muito curta!");
+            }
+
+            else if (senha2 != senha) {
+                alert("A confirmação de senha deve ser igual a primeira");
+            }
+
+            else {
+
+                if (response.ok) {
+    
+                    alert("Cadastro realizado com sucesso!");
+    
+                    window.location.href = 'login.html';
+    
+    
+                } else {
+    
+                    console.log('Erro de cadastro!');
+                    response.text().then(function (resposta) {
+                        div_erro.innerHTML = resposta;
+                    });
+                    finalizar_aguardar();
+                }
+                
+            }
+
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display = 'block';
+        div_erro.style.display = 'none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display = 'none';
+        div_erro.style.display = 'block';
+    }
+
+</script>

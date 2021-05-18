@@ -1,0 +1,458 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrool bar */
+
+::-webkit-scrollbar {
+  background-color: #222222;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #ffae00);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #3c793c);
+}
+
+/* Scrool bar */
+
+/* Inicio cabeçalho*/
+
+.conteudo_total {
+  background-color: #3c793c;
+}
+
+.header {
+  padding: 50px;
+  height: 180px;
+  background-color: #222222;
+}
+
+.header .container {
+  margin-top: 50px;
+  border-radius: 3px;
+  height: 100px;
+  background-color: #3c793c;
+}
+
+.header .container img {
+  transition: background 0.4s;
+  padding-left: 50px;
+  height: 220px;
+  width: 220px;
+}
+
+.header .container img:hover {
+  background-color: #3c793c;
+}
+
+.header ul {
+  float: right;
+  list-style: none;
+}
+
+.header li {
+  font-weight: 500;
+  transition: background 0.3s;
+  font-family: "Courier New", Courier, monospace;
+  display: inline-block;
+  padding: 41px;
+}
+
+.header a {
+  font-weight: bolder;
+  border-radius: 5px;
+  padding: 32px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.header li:hover {
+  background-color: #222222;
+}
+
+.current_page {
+  background-color: #222222;
+}
+
+.current_page a {
+  color: #ffae00;
+}
+
+.header a:hover {
+  text-shadow: 0px 0px 4px #ffae00;
+  color: #ffae00;
+}
+
+/* Fim cabeçalho*/
+
+/* Pagina inicial */
+
+.div_never_give_up {
+  border-radius: 3px;
+  margin: 10px 10px 10px 10px;
+  width: 70%;
+  padding: 180px;
+  height: 300px;
+  background-image: url("img/kakashi-raposa.jpg");
+  background-size: cover;
+}
+
+.div_never_give_up .container {
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  height: 300px;
+  background-color: #222222b9;
+}
+
+.span_nome_naruto {
+  font-size: 40px;
+  color: #ffae00;
+  font-weight: bold;
+  margin-left: 700px;
+}
+
+.div_never_give_up .container h1 {
+  margin-bottom: 40px;
+  font-size: 55px;
+  color: #ffffff;
+}
+
+.div_never_give_up .container span {
+  font-size: 30px;
+}
+
+.div_naruto {
+  border-radius: 3px;
+  margin: 10px 10px 10px 135px;
+  width: 90%;
+  height: 500px;
+  background-color: #222222;
+}
+
+.div_naruto .container {
+  margin-top: 50px;
+  float: left;
+  width: 40%;
+  background-image: url("img/naruto-sad.jpg");
+  background-size: cover;
+  height: 400px;
+}
+
+.container {
+  margin-left: 20px;
+}
+
+
+.div_naruto .naruto_classico {
+  padding: 15px;
+  border-radius: 3px;
+  text-align: justify ;
+  margin-right: 50px;
+  margin-top: 100px;
+  width: 50%;
+  float: right;
+  height: 300px;
+  background-color: #3c793c73;
+}
+
+.div_naruto .naruto_classico span {
+  padding-top: 50px;
+  font-size: 25px;
+  color: white;
+}
+
+.div_naruto_hokage {
+  border-radius: 3px;
+  margin: 10px 10px 10px 10px;
+  width: 75%;
+  padding: 150px;
+  height: 300px;
+  background-image: url("img/naruto-hokage.jpg");
+  background-size: 38%;
+}
+
+.div_naruto_hokage .container_hokage {
+  border-radius: 3px;
+  height: 300px;
+  background-color: #222222d7;
+}
+
+.container_hokage {
+  padding: 30px;
+  padding-top: 60px;
+  text-align: justify;
+}
+
+.div_naruto_hokage .container_hokage span {
+  color: #ffae00;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+/* Pagina inicial */
+
+/* Footer */
+
+.footer {
+  text-align: center;
+  height: 400px;
+  background-color: #195a19d7;
+}
+
+.footer .container1 {
+  float: left;
+  margin-left: 25px;
+}
+
+.footer .container3 {
+  border-radius: 5px;
+  float: right;
+  margin-right: 25px;
+}
+
+.footer .container1,
+.container3,
+.container2 {
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 80px;
+  display: inline-block;
+  height: 150px;
+  width: 200px;
+  background-color: #3c793c;
+}
+
+.footer .container1 img {
+  width: 150px;
+  height: 150px;
+}
+
+.footer .container2 ul li {
+  font-family: "Courier New", Courier, monospace;
+  transition: color 0.3s;
+  font-size: 17.5px;
+  cursor: pointer;
+  margin-left: 15px;
+  padding: 13px;
+}
+
+.footer .container2 ul li:hover {
+  color: #222222;
+}
+
+.footer .container3 img {
+  padding: 70px;
+  transition: background 0.4s;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+}
+
+.footer .container3 img:hover {
+  background-color: #195a19d7;
+}
+
+.container_footer {
+  margin-top: 50px;
+  margin-left: 150px;
+  width: 80%;
+  height: 350px;
+  background-color: #3c793c;
+}
+
+                                            /* Footer */
+                                            
+                                            /* Cadastro */
+.formulario_cadastro, .formulario_login {
+  border-radius: 2px;
+  padding: 5%;
+  background-color: #222222;
+  width: 40%;
+  margin: 5% auto;
+  font-family: "exo2";
+  color: white;
+}
+
+.formulario_login {
+  font-size: 22px;
+}
+
+.formulario_login label,
+.formulario_login input {
+  font-size: 20px;
+  display: block;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 3%;
+  padding: 0.5%;
+}
+
+.formulario_cadastro label,
+.formulario_cadastro input {
+  font-size: 20px;
+  display: block;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 4%;
+  padding: 0.5%;
+}
+
+#btn_entrar {
+  margin-top: 50px;
+}
+
+.botao_cadastrar, .botao_login {
+  border-radius: 4px;
+  background-color: rgb(219, 219, 219);
+  width: 20%;
+  margin-left: 40%;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+  font-family: "exo2";
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 15px;
+  
+}
+
+.formulario_cadastro h1, .formulario_login h1 {
+  transition: 0.3s;
+  cursor: default;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.formulario_cadastro h1:hover, .formulario_login h1:hover {
+  color: #ffae00;
+  text-shadow: 0px 0px 4px #ffae00;
+}
+
+.botao_login:hover, .botao_cadastrar:hover {
+  background-color: #222222;
+  color: #ffae00;
+  text-shadow: 0px 0px 4px #ffae00;
+  border: solid 1px #ffae00;
+}
+
+                                                /* PAGINA SOBRE */
+
+.div_quem_somos {
+  color: white;
+  text-align: center;
+  margin: 10px;
+  padding: 50px;
+  height: 500px;
+  background-color: #222222;
+}
+
+.div_quem_somos h1 {
+  color: #ffae00;
+  font-family: "exo2";
+  cursor: default;
+  padding: 50px;
+  font-size: 100px;
+}
+
+.div_quem_somos span {
+  font-family: "exo2";
+  cursor: default;
+  font-size: 35px;
+}
+
+.div_quem_somos_2 {
+  padding: 30px;
+  color: white;
+  height: 300px;
+  background-color: #222222;
+}
+
+.div1_botao_mudar  {
+  text-align: center;
+  float: left;
+  height: 290px;
+  width: 50%;
+  background-color: #222222;
+}
+
+.div2_botao_mudar {
+  text-align: justify;
+  float: right;
+  height: 290px;
+  width: 50%;
+  background-color: #222222;
+}
+
+.div2_botao_mudar span {
+  font-size: 23px;
+  font-family: "exo2";
+  margin-top: 100px;
+}
+
+.div2_botao_mudar h2 {
+  margin-left: 90px;
+  color: #ffae00;
+  font-family: "exo2";
+  font-size: 50px;
+  padding: 30px;
+}
+
+.div1_botao_mudar button {
+  border-radius: 4px;
+  background-color: #3c793c;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+  /*font-family: "exo2";*/
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 125px;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+.div1_botao_mudar button:hover {
+  border: solid 1px #ffae00;
+  background-color: #222222;
+  color: #ffae00;
+  text-shadow: 0px 0px 4px #ffae00;
+}
+
+                                                  /* PAGINA FORUM */
+.div_auto_conhecimento {
+  font-size: 30px;
+  margin-top: 50px;
+  float: left;
+  height: 500px;
+  width: 50%;
+  background-color: red;
+}
+
+.div_pessoa_melhor {
+  margin-top: 50px;
+  float: right;
+  height: 500px;
+  width: 50%;
+  background-color: yellow;
+}
+
+.div_auto_conhecimento form {
+  
+}
+
+.div_auto_conhecimento input {
+  display: block;
+}
