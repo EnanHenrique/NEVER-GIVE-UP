@@ -455,4 +455,17 @@
 
 .div_auto_conhecimento input {
   display: block;
+  height: 30px;
+  width: 400px;
+  margin: auto;
+}
+
+.div_auto_conhecimento button {
+  font-size: 30px;
+  margin-left: 250px;
+  margin-top: 30px;
+}
+
+.div_auto_conhecimento button:active {
+  background-color: #222222;
 }

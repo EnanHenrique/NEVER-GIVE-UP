@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
+var AutoConhecimento = require('../models').AutoConhecimento;
 
 let sessoes = [];
 
@@ -46,6 +47,28 @@ router.post('/cadastrar', function(req, res, next) {
 		senha: req.body.senha,
 		email: req.body.email,
 		dataNascimento: req.body.dataNascimento
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+
+/* Inserir dados auto_conhecimento */
+router.post('/inserir', function(req, res, next) {
+	console.log('Inserindo dados na tbl autoconhecimento');
+	
+	AutoConhecimento.create({
+		timidez : req.body.timidez,
+		oratoria : req.body.oratoria,
+		quebraDeExpectativa: req.body.quebraDeExpectativa,
+		solidao: req.body.solidao,
+		saudade: req.body.saudade,
+        felicidade: req.body.felicidade,
+        conquista: req.body.conquista
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
         res.send(resultado);

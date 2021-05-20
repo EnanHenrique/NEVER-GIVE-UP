@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,15 @@
     <link rel="stylesheet" href="style.css">
     <title>Never Give Up</title>
 </head>
+
 <body class="conteudo_total">
-    
+
     <div id="cabecalho" class="header">
         <div class="container">
             <img src="img/LOGO.png" alt="Logo da Never Give Up">
             <ul>
                 <li> <a href="index.html">HOME</a> </li>
-                <li class="current_page"> <a  href="">Fórum</a> </li>
+                <li class="current_page"> <a href="">Fórum</a> </li>
                 <li> <a href="sobre.html">SOBRE</a> </li>
                 <li> <a href="cadastro.html">CADASTRO</a> </li>
                 <li> <a href="login.html">LOGIN</a> </li>
@@ -23,30 +25,69 @@
     </div>
 
     <div class="div_auto_conhecimento">
-        <form method="POST">
+        <form method="POST" id="form_auto_conhecimento" onsubmit="return inserir()">
 
             timidez<input type="text" name="timidez" id="idTimidez">
 
-            oratoria<input type="text" name="oratoria" id="">
+            oratoria<input type="text" name="oratoria" id="idOratoria">
 
-            quebraDeExpectativa<input type="text" name="quebraDeExpectativa" id="">
+            quebraDeExpectativa<input type="text" name="quebraDeExpectativa" id="idQuebraDeExpectativa">
 
-            solidao<input type="text" name="solidao" id="">
+            solidao<input type="text" name="solidao" id="idSolidao">
 
-            saudade<input type="text" name="saudade" id="">
+            saudade<input type="text" name="saudade" id="idSaudade">
 
-            felicidade<input type="text" name="felicidade" id="">
+            felicidade<input type="text" name="felicidade" id="idFelicidade">
 
-            conquista<input type="text" name="conquista" id="">
+            conquista<input type="text" name="conquista" id="idConquista">
+
+            <!--<input type="submit" value="inserir">Inserir dados</button>-->
+
+            Botao inserir<input type="submit" value="inserir">
 
         </form>
+
+        <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+            Erro ao inserir dados
+        </div>
+
     </div>
 
     <div class="div_pessoa_melhor">
-        
+
     </div>
 
 
 
 </body>
+
 </html>
+
+<script>
+    function inserir() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_auto_conhecimento));
+        fetch("/usuarios/inserir", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            if (response.ok) {
+
+                alert("Dados inseridos na tbl autoconhecimento com sucesso!");
+
+                // window.location.href = 'login.html';
+
+
+            } else {
+
+                console.log('Erro ao inserir dados na tbl autoconhecimento!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                // finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+</script>
