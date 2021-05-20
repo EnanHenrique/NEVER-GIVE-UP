@@ -40,11 +40,15 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		fkAutoConhecimento: {
 			field: 'fkAutoConhecimento',
+			foreignKey: true,
+			// autoIncrement: 1000,
 			type: DataTypes.INTEGER,
 			allowNull: true
 		},
 		fkPessoaMelhor: {
 			field: 'fkPessoaMelhor',
+			foreignKey: true,
+			// autoIncrement: 10000,
 			type: DataTypes.INTEGER,
 			allowNull: true
 		}

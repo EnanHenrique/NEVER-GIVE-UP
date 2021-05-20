@@ -3,6 +3,7 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
 var AutoConhecimento = require('../models').AutoConhecimento;
+var PessoaMelhor = require('../models').PessoaMelhor;
 
 let sessoes = [];
 
@@ -62,6 +63,27 @@ router.post('/inserir', function(req, res, next) {
 	console.log('Inserindo dados na tbl autoconhecimento');
 	
 	AutoConhecimento.create({
+		timidez : req.body.timidez,
+		oratoria : req.body.oratoria,
+		quebraDeExpectativa: req.body.quebraDeExpectativa,
+		solidao: req.body.solidao,
+		saudade: req.body.saudade,
+        felicidade: req.body.felicidade,
+        conquista: req.body.conquista
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+/* Inserir dados PessoaMelhor */
+router.post('/inserirPessoaMelhor', function(req, res, next) {
+	console.log('Inserindo dados na tbl PessoaMelhor');
+	
+	PessoaMelhor.create({
 		timidez : req.body.timidez,
 		oratoria : req.body.oratoria,
 		quebraDeExpectativa: req.body.quebraDeExpectativa,

@@ -54,7 +54,27 @@
     </div>
 
     <div class="div_pessoa_melhor">
+        <form method="POST" id="form_pessoa_melhor" onsubmit="return inserirPessoaMelhor()">
 
+            timidez<input type="text" name="timidez" id="idTimidez2">
+
+            oratoria<input type="text" name="oratoria" id="idOratoria2">
+
+            quebraDeExpectativa<input type="text" name="quebraDeExpectativa" id="idQuebraDeExpectativa2">
+
+            solidao<input type="text" name="solidao" id="idSolidao2">
+
+            saudade<input type="text" name="saudade" id="idSaudade2">
+
+            felicidade<input type="text" name="felicidade" id="idFelicidade2">
+
+            conquista<input type="text" name="conquista" id="idConquista2">
+
+            <!--<input type="submit" value="inserir">Inserir dados</button>-->
+
+            Botao inserir<input type="submit" value="inserirPessoaMelhor">
+
+        </form>
     </div>
 
 
@@ -90,4 +110,32 @@
 
         return false;
     }
+
+    function inserirPessoaMelhor() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_pessoa_melhor));
+        fetch("/usuarios/inserirPessoaMelhor", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            if (response.ok) {
+
+                alert("Dados inseridos na tbl PessoaMelhor com sucesso!");
+
+                // window.location.href = 'login.html';
+
+
+            } else {
+
+                console.log('Erro ao inserir dados na tbl PessoaMelhor!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                // finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
 </script>

@@ -6,9 +6,9 @@ https://codewithhugo.com/sequelize-data-types-a-practical-guide/
 */
 
 module.exports = (sequelize, DataTypes) => {
-    let AutoConhecimento = sequelize.define('AutoConhecimento',{
-		idAutoconhecimento: {
-			field: 'idAutoconhecimento',
+    let PessoaMelhor = sequelize.define('PessoaMelhor',{
+		idPessoaMelhor: {
+			field: 'idPessoaMelhor',
 			type: DataTypes.INTEGER,
 			primaryKey: true,
 			autoIncrement: true
@@ -50,11 +50,11 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	}, 
 	{
-		tableName: 'AutoConhecimento', 
+		tableName: 'PessoaMelhor', 
 		freezeTableName: true, 
 		underscored: true,
 		timestamps: false,
 	});
 
-    return AutoConhecimento;
+    return PessoaMelhor;
 };
