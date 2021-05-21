@@ -1,6 +1,6 @@
 
-                                    // VERIFICACAO DE CADASTRO
-/* 
+                                    // VERIFICACAO DE CADASTRO 
+                                    /*
 function verificacao_botao_cadastrar() {
     var nome = idNome.value;
     var email = idEmail.value;
@@ -56,10 +56,11 @@ function verificacao_botao_cadastrar() {
 */
 
 
+
                                     // VERIFICACAO DE LOGIN
 
-/*
 
+/*
 function verificar_botao_login() {
     var login = idLogin.value;
     let senha = idSenha.value;
@@ -81,5 +82,4 @@ function verificar_botao_login() {
     }
 
 }
-
 */

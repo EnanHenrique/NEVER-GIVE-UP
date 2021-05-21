@@ -44,7 +44,7 @@
         <label>Confirme sua Senha</label>
         <input autocomplete="off" type="password" id="idConfirmarSenha" placeholder="Digite sua senha novamente">
 
-        <input onclick="verificacao_botao_cadastrar()" type="submit" id="btn_entrar" value="Cadastrar"
+        <input  type="submit" id="btn_entrar" value="Cadastrar"
             class="botao_cadastrar">
 
     </form>
@@ -83,96 +83,96 @@
 
 <script>
 
-    function cadastrar() {
-        // aguardar();
-        var formulario = new URLSearchParams(new FormData(form_cadastro));
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            body: formulario
-        }).then(function (response) {
+        function cadastrar() {
+            // aguardar();
+            var formulario = new URLSearchParams(new FormData(form_cadastro));
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                body: formulario
+            }).then(function (response) {
 
-            var nome = idNome.value;
-            var email = idEmail.value;
-            var login = idLogin.value;
-            var dataNascimento = idDataNascimento.value;
-            var senha = idSenha.value;
-            var senha2 = idConfirmarSenha.value;
+                var nome = idNome.value;
+                var email = idEmail.value;
+                var login = idLogin.value;
+                var dataNascimento = idDataNascimento.value;
+                var senha = idSenha.value;
+                var senha2 = idConfirmarSenha.value;
 
-            if (nome == "") {
-                alert("Digite um nome de usuário!");
-            }
-
-            else if (nome.length < 4) {
-                alert("Digite pelo menos 4 caracteres no nome de usuario");
-            }
-
-            else if (login == "") {
-                alert("Digite um nome de login!");
-            }
-
-            else if (login.length < 4) {
-                alert("Digite pelo menos 4 caracteres no campo de login!");
-            }
-
-            else if (email.length < 10) {
-                alert("E-mail muito curto");
-            }
-
-            else if (email.indexOf("@") < 0) {
-                alert("E-mail não possui '@' ");
-            }
-
-            else if (email.indexOf(".com") < 0) {
-                alert("E-mail não possui '.com', como assim?");
-            }
-
-            else if (dataNascimento == "") {
-                alert("Insira a data de nascimento");
-            }
-
-            else if (senha.length < 6) {
-                alert("Senha muito curta!");
-            }
-
-            else if (senha2 != senha) {
-                alert("A confirmação de senha deve ser igual a primeira");
-            }
-
-            else {
-
-                if (response.ok) {
-    
-                    alert("Cadastro realizado com sucesso!");
-    
-                    window.location.href = 'login.html';
-    
-    
-                } else {
-    
-                    console.log('Erro de cadastro!');
-                    response.text().then(function (resposta) {
-                        div_erro.innerHTML = resposta;
-                    });
-                    finalizar_aguardar();
+                if (nome == "") {
+                    alert("Digite um nome de usuário!");
                 }
-                
-            }
 
-        });
+                else if (nome.length < 4) {
+                    alert("Digite pelo menos 4 caracteres no nome de usuario");
+                }
 
-        return false;
-    }
+                else if (login == "") {
+                    alert("Digite um nome de login!");
+                }
 
-    function aguardar() {
-        btn_entrar.disabled = true;
-        img_aguarde.style.display = 'block';
-        div_erro.style.display = 'none';
-    }
+                else if (login.length < 4) {
+                    alert("Digite pelo menos 4 caracteres no campo de login!");
+                }
 
-    function finalizar_aguardar() {
-        btn_entrar.disabled = false;
-        img_aguarde.style.display = 'none';
-        div_erro.style.display = 'block';
-    }
+                else if (email.length < 10) {
+                    alert("E-mail muito curto");
+                }
+
+                else if (email.indexOf("@") < 0) {
+                    alert("E-mail não possui '@' ");
+                }
+
+                else if (email.indexOf(".com") < 0) {
+                    alert("E-mail não possui '.com', como assim?");
+                }
+
+                else if (dataNascimento == "") {
+                    alert("Insira a data de nascimento");
+                }
+
+                else if (senha.length < 6) {
+                    alert("Senha muito curta!");
+                }
+
+                else if (senha2 != senha) {
+                    alert("A confirmação de senha deve ser igual a primeira");
+                }
+
+                else {
+
+                    if (response.ok) {
+
+                        alert("Cadastro realizado com sucesso!");
+
+                        window.location.href = 'login.html';
+
+
+                    } else {
+
+                        console.log('Erro de cadastro!');
+                        response.text().then(function (resposta) {
+                            div_erro.innerHTML = resposta;
+                        });
+                        finalizar_aguardar();
+                    }
+
+                }
+
+            });
+
+            return false;
+        }
+
+        function aguardar() {
+            btn_entrar.disabled = true;
+            img_aguarde.style.display = 'block';
+            div_erro.style.display = 'none';
+        }
+
+        function finalizar_aguardar() {
+            btn_entrar.disabled = false;
+            img_aguarde.style.display = 'none';
+            div_erro.style.display = 'block';
+        }
 
 </script>
