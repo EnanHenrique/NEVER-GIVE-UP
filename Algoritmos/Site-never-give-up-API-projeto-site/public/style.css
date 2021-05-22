@@ -436,7 +436,7 @@
   color: #ffae00;
   font-size: 30px;
   margin: 50px auto;
-  height: 700px;
+  height: 900px;
   width: 80%;
   background-color: #222222;
   border-radius: 10px;
@@ -454,11 +454,16 @@
   margin-left: 480px;
 }
 
+.div_auto_conhecimento h1, .div_pessoa_melhor h1 {
+  font-size: 40px;
+  padding: 50px;
+}
+
 .div_pessoa_melhor {
   color: #ffae00;
   font-size: 30px;
   margin: 50px auto;
-  height: 700px;
+  height: 900px;
   width: 80%;
   background-color: #222222;
   border-radius: 10px;

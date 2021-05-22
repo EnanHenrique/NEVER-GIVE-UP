@@ -105,7 +105,7 @@
                         sessionStorage.login_usuario_meuapp = json.login;
                         sessionStorage.nome_usuario_meuapp = json.nome;
     
-                        window.location.href = 'tempo-real.html';
+                        window.location.href = 'forum.html';
                     });
     
                 } else {
@@ -131,9 +131,10 @@
     }
 
     function finalizar_aguardar(resposta) {
+        alert("Login e/ou senha inválidos!");
         btn_entrar.disabled = false;
         img_aguarde.style.visibility = 'hidden';
-        div_erro.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
         div_erro.innerHTML = resposta;
     }
 
