@@ -4,6 +4,7 @@ var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
 var AutoConhecimento = require('../models').AutoConhecimento;
 var PessoaMelhor = require('../models').PessoaMelhor;
+var estado_emocional = require('../models').estado_emocional;
 
 let sessoes = [];
 
@@ -91,6 +92,25 @@ router.post('/inserirPessoaMelhor', function(req, res, next) {
 		saudade: req.body.saudade,
         felicidade: req.body.felicidade,
         conquista: req.body.conquista
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+
+/* Inserir dado de estado emocional do usuario */
+router.post('/inserir_estado_emocional/:idUsuario', function(req, res, next) {
+	console.log('Inserindo dados na tbl dados de estado emocional do usuario');
+
+	let idUsuario = req.params.idUsuario;
+	
+	estado_emocional.create({
+		estado_emocional : req.body.estado_emocional,
+		fkUsuario : idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
         res.send(resultado);
