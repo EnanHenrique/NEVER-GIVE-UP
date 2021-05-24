@@ -47,7 +47,12 @@ module.exports = (sequelize, DataTypes) => {
 			field: 'conquista',
 			type: DataTypes.STRING,
 			allowNull: false
-		}
+		},
+		fkUsuario: {
+            field: 'fkUsuario',
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
 	}, 
 	{
 		tableName: 'PessoaMelhor', 

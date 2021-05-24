@@ -126,7 +126,8 @@
     function inserir() {
         // aguardar();
         var formulario = new URLSearchParams(new FormData(form_auto_conhecimento));
-        fetch("/usuarios/inserir", {
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        fetch(`/usuarios/inserir/${idUsuario}`, {
             method: "POST",
             body: formulario
         }).then(function (response) {
@@ -153,7 +154,8 @@
     function inserirPessoaMelhor() {
         // aguardar();
         var formulario = new URLSearchParams(new FormData(form_pessoa_melhor));
-        fetch("/usuarios/inserirPessoaMelhor", {
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        fetch(`/usuarios/inserirPessoaMelhor/${idUsuario}`, {
             method: "POST",
             body: formulario
         }).then(function (response) {

@@ -60,8 +60,10 @@ router.post('/cadastrar', function(req, res, next) {
 
 
 /* Inserir dados auto_conhecimento */
-router.post('/inserir', function(req, res, next) {
+router.post('/inserir/:idUsuario', function(req, res, next) {
 	console.log('Inserindo dados na tbl autoconhecimento');
+
+	let idUsuario = req.params.idUsuario;
 	
 	AutoConhecimento.create({
 		timidez : req.body.timidez,
@@ -70,7 +72,8 @@ router.post('/inserir', function(req, res, next) {
 		solidao: req.body.solidao,
 		saudade: req.body.saudade,
         felicidade: req.body.felicidade,
-        conquista: req.body.conquista
+        conquista: req.body.conquista,
+		fkUsuario : idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
         res.send(resultado);
@@ -81,8 +84,10 @@ router.post('/inserir', function(req, res, next) {
 });
 
 /* Inserir dados PessoaMelhor */
-router.post('/inserirPessoaMelhor', function(req, res, next) {
+router.post('/inserirPessoaMelhor/:idUsuario', function(req, res, next) {
 	console.log('Inserindo dados na tbl PessoaMelhor');
+
+	let idUsuario = req.params.idUsuario;
 	
 	PessoaMelhor.create({
 		timidez : req.body.timidez,
@@ -91,7 +96,8 @@ router.post('/inserirPessoaMelhor', function(req, res, next) {
 		solidao: req.body.solidao,
 		saudade: req.body.saudade,
         felicidade: req.body.felicidade,
-        conquista: req.body.conquista
+        conquista: req.body.conquista,
+		fkUsuario : idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
         res.send(resultado);
