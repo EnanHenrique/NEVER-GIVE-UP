@@ -505,3 +505,43 @@
   color: #ffae00;
   border: solid 1px #ffae00;
 }
+
+.div_estado_emocional {
+  padding-top: 100px;
+  margin-top: 100px;
+  height: 300px;
+  background-color: yellow;
+}
+
+.container_estado_emocional {
+  width: 80%;
+  height: 200px;
+  background-color: yellow;
+  margin: auto;
+  display: inline-block;
+  margin-left: 150px;
+}
+
+.box_happy, .box_normal, .box_sad {
+  height: 200px;
+  width: 33.3%;
+  float: left;
+  border-radius: 7px;
+}
+
+.box_happy {
+  background-color: green;
+}
+
+.box_normal {
+  background-color: rgb(85, 136, 202);
+}
+
+.box_sad {
+  background-color: rgb(255, 0, 0);
+}
+
+.box_happy img , .box_normal img, .box_sad img {
+  width: 200px;
+  height: 200px;
+}
