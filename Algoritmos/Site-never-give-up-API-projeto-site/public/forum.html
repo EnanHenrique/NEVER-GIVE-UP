@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="div_estado_emocional">
+    <div class="div_estado_emocional" id="div_estado_emocional">
         <h1>Conte-nos como você está se sentindo?</h1>
         <div class="container_estado_emocional">
             <form method="POST" id="form_estado_emocional" onsubmit="return inserir_estado_emocional()">
@@ -46,6 +46,23 @@
             </form>
         </div>
     </div>
+
+    <div class="div_englobando_personagens">
+        <div class="div_nome_personagens" id="div_nome_personagens">
+            <h1>Nome de personagens do anime Naruto que você mais gosta:  </h1> 
+            <textarea maxlength="20" placeholder="Digite aqui" name="" id="textarea_personagens" cols="30" rows="3"></textarea>
+            <br>
+            <button onclick="adicionar_personagem()">Adicionar personagem</button> <button onclick="limpar_div_personagens()">limpar personagens</button>
+            <div id="div_mostrar_personagens">
+    
+            </div>
+        </div>
+    
+        <div id="div_foto_personagens" class="div_foto_personagens">
+    
+        </div>
+    </div>
+
 
     <div class="div_auto_conhecimento">
 
@@ -117,13 +134,63 @@
         </form>
     </div>
 
-
-
+    
 </body>
 
 </html>
 
 <script>
+
+    function limpar_div_personagens() {
+        numero = 0;
+        lista_personagens = [];
+        div_mostrar_personagens.innerHTML = "";
+        div_foto_personagens.innerHTML = "";
+    }
+
+    var lista_personagens = [];
+    function adicionar_personagem() {
+        let personagem = textarea_personagens.value;
+        var numero = 1;
+
+        if (personagem == "") {
+            alert("Digite um nome válido.");
+        }
+
+        else if (lista_personagens.length > 2) {
+            alert("Voce só pode adicionar 3 personagens!");
+        }
+
+        else if (personagem.toLowerCase() == "naruto") {
+            lista_personagens.push(personagem);
+            div_foto_personagens.innerHTML += 
+            ` <img style = "width: 300px; margin: 10px;" src="https://i.pinimg.com/736x/a9/4b/10/a94b105911007f7262c52b242766a58a.jpg" 
+            alt="imagem do naruto"> `;
+            div_mostrar_personagens.innerHTML += `  ${personagem.toUpperCase()} <br>  `;
+                numero++;
+        }
+        else if (personagem.toLowerCase() == "sasuke") {
+            lista_personagens.push(personagem);
+            div_foto_personagens.innerHTML += 
+            ` <img style = "width: 302px; margin: 10px;" src="https://i.pinimg.com/originals/f5/a2/35/f5a235ed524781a7f837361a0970f16d.jpg" 
+            alt="imagem do sasuke"> `;
+            div_mostrar_personagens.innerHTML += `  ${personagem.toUpperCase()} <br>  `;
+                numero++;
+        }
+
+        else {
+            lista_personagens.push(personagem);
+            div_mostrar_personagens.innerHTML = "";
+            for (var contador = 0; contador < lista_personagens.length; contador++) {
+                div_mostrar_personagens.innerHTML += ` ${lista_personagens[contador].toUpperCase()} <br>  `;
+                numero++;            
+            }
+        }
+
+        
+        textarea_personagens.value = "";
+    }
+
     function inserir() {
         // aguardar();
         var formulario = new URLSearchParams(new FormData(form_auto_conhecimento));
@@ -190,7 +257,10 @@
         }).then(function (response) {
             if (response.ok) {
 
-                alert("Dados inseridos na tbl estado_emocional com sucesso!");
+                alert("Dados enviados com sucesso! Agradecemos pelo envio da informação.");
+
+                div_estado_emocional.style.display = "none";
+                div_nome_personagens.style.marginTop = "100px";
 
                 // window.location.href = 'login.html';
 
