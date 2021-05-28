@@ -219,6 +219,7 @@
 }
 
 .footer .container1,
+.container2_1,
 .container3,
 .container2 {
   color: white;
@@ -231,12 +232,17 @@
   background-color: #3c793c;
 }
 
+.footer .container2_1 a , .container2 a{
+  text-decoration: none;
+  color: white;
+}
+
 .footer .container1 img {
   width: 150px;
   height: 150px;
 }
 
-.footer .container2 ul li {
+.footer .container2 ul li, .container2_1 ul li {
   font-family: "Courier New", Courier, monospace;
   transition: color 0.3s;
   font-size: 17.5px;
@@ -245,7 +251,7 @@
   padding: 13px;
 }
 
-.footer .container2 ul li:hover {
+.footer .container2 ul li:hover, .container2_1 ul li:hover, .container2_1 ul li a:hover, .container2 ul li a:hover  {
   color: #222222;
 }
 
@@ -262,6 +268,8 @@
 }
 
 .container_footer {
+  border-radius: 15px;
+  border-top: solid 25px #195a19d7;
   margin-top: 50px;
   margin-left: 150px;
   width: 80%;
@@ -509,7 +517,7 @@
 .div_estado_emocional {
   padding-top: 100px;
   margin-top: 100px;
-  height: 300px;
+  height: 450px;
   background-color: #222222;
 }
 
@@ -517,15 +525,22 @@
   width: 80%;
   height: 200px;
   border-radius: 7px;
-  background-color: #3c793c;
   margin: auto;
   display: inline-block;
   margin-left: 150px;
 }
 
+.div_estado_emocional h1 {
+  margin-left: 400px;
+  margin-bottom: 50px;
+  color: #ffae00;
+  font-size: 45px;
+}
+
 .box_happy, .box_normal, .box_sad {
+  transition: background 0.3s;
   height: 200px;
-  width: 33.3%;
+  width: 33.33%;
   float: left;
   border-radius: 7px;
   text-align: center;
@@ -547,4 +562,37 @@
   width: 150px;
   height: 150px;
   margin-top: 25px;
+}
+
+.box_happy:hover, .box_normal:hover, .box_sad:hover {
+  background-color: #3c793c;
+}
+
+.container_estado_emocional:hover {
+  background-color: #222222;
+}
+
+.btn_emocional {
+  text-transform: uppercase;
+  transition: background 0.3s;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: 567px;
+  margin-top: 50px;
+}
+
+.btn_emocional:hover{
+  background-color: #222222;
+  border: solid 1px #ffae00;
+  color: white;
+}
+
+.btn_emocional:active {
+  padding-bottom: 40px;
+  padding-right: 40px;
+  margin-left: 450px;
+  width: 20%;
 }
