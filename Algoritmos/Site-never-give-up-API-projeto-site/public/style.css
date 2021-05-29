@@ -674,3 +674,76 @@
   float: right;
   height: 360px;
 }
+
+                                                      /* DIV OPINIAO DO USUARIO */
+.div_opiniao_usuario {
+  padding: 100px;
+  height: 500px;
+  background-color: #222222;
+}                                               
+
+.div_opiniao_usuario_container {
+  height: 100%;
+  background-color:#222222;
+}
+
+.div_opiniao_usuario_container h1 {
+  font-size: 40px;
+  color: #ffffff;
+}
+
+.div_select_nota {
+  padding: 25px;
+  border-radius: 7px;
+  font-size: 30px;
+  margin-top: 10%;
+  height: 50%;
+  background-color: #3d3b3b;
+}
+
+.div_select_nota h3 {
+  color: #ffffff;
+  margin-left: 40%;
+}
+
+.div_select_nota select {
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.3s;
+  padding: 1%;
+  border-radius: 7px;
+  border: none;
+  background-color: #222222;
+  margin-left: 47%;
+  margin-top: 3%;
+  font-size: 30px;
+}
+
+.div_select_nota select option {
+  background-color: #195a19d7;
+}
+
+.div_select_nota select:hover {
+  background-color: #195a19d7;
+}
+
+.div_select_nota button {
+  text-transform: uppercase;
+  transition: background 0.3s;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  margin-left: 41.5%;
+  border: none;
+  border-radius: 7px;
+  margin-top: 2%;
+  width: 22%;
+}
+
+.div_select_nota button:hover {
+  background-color: #195a19d7;
+  color: white;
+}
+
+
+                                                      /* DIV OPINIAO DO USUARIO */
