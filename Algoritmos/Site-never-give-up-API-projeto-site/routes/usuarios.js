@@ -5,6 +5,7 @@ var Usuario = require('../models').Usuario;
 var AutoConhecimento = require('../models').AutoConhecimento;
 var PessoaMelhor = require('../models').PessoaMelhor;
 var estado_emocional = require('../models').estado_emocional;
+var opiniao_usuario = require('../models').opiniao_usuario;
 
 let sessoes = [];
 
@@ -116,6 +117,24 @@ router.post('/inserir_estado_emocional/:idUsuario', function(req, res, next) {
 	
 	estado_emocional.create({
 		estado_emocional : req.body.estado_emocional,
+		fkUsuario : idUsuario
+	}).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
+/* Inserir dados na tbl opiniao_usuario */
+router.post('/inserir_opiniao_usuario/:idUsuario', function(req, res, next) {
+	console.log('Inserindo dados na tbl opiniao_usuario');
+
+	let idUsuario = req.params.idUsuario;
+	
+	opiniao_usuario.create({
+		nota : req.body.name_select_opiniao_usuario,
 		fkUsuario : idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)

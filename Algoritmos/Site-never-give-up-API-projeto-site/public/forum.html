@@ -31,15 +31,15 @@
         <div class="container_estado_emocional">
             <form method="POST" id="form_estado_emocional" onsubmit="return inserir_estado_emocional()">
                 <div class="box_happy">
-                    <input type="radio" name="estado_emocional" id="" value="usuario_feliz" >
+                    <input type="radio" name="estado_emocional"  value="usuario_feliz" >
                     <img src="./img/emoji_feliz.png" alt="emoji_feliz">
                 </div>
                 <div class="box_normal">
-                    <input type="radio" name="estado_emocional" id="" value="usuario_normal">
+                    <input type="radio" name="estado_emocional"  value="usuario_normal">
                     <img src="./img/emoji_normal.png" alt="emoji_normal">
                 </div>
                 <div class="box_sad">
-                    <input type="radio" name="estado_emocional" id="" value="usuario_sad">
+                    <input type="radio" name="estado_emocional" value="usuario_sad">
                     <img src="./img/emoji_triste.png" alt="emoji_triste">
                 </div>
 
@@ -142,16 +142,20 @@
 
             <div class="div_select_nota">
                 <h3>Escolha a nota aqui:</h3>
-                <select name="name_select_opiniao_usuario" id="id_select_opiniao_usuario">
-                    <option value="0">Nota 0</option>
-                    <option value="1">Nota 1</option>
-                    <option value="2">Nota 2</option>
-                    <option value="3">Nota 3</option>
-                    <option value="4">Nota 4</option>
-                    <option value="5">Nota 5</option>
-                </select>
-                <br>
-                <button>Enviar nota</button>
+
+                <form method="POST" id="form_opiniao_usuario" onsubmit="return inserir_opiniao_usuario()">
+                    <select name="name_select_opiniao_usuario" id="id_select_opiniao_usuario">
+                        <option value="0">Nota 0</option>
+                        <option value="1">Nota 1</option>
+                        <option value="2">Nota 2</option>
+                        <option value="3">Nota 3</option>
+                        <option value="4">Nota 4</option>
+                        <option value="5">Nota 5</option>
+                    </select>
+                    <br>
+                    <button type="submit">Enviar nota</button>
+                </form>
+
             </div>
 
         </div>
@@ -213,6 +217,36 @@
         
         textarea_personagens.value = "";
     }
+
+
+    function inserir_opiniao_usuario() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_opiniao_usuario));
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        fetch(`/usuarios/inserir_opiniao_usuario/${idUsuario}`, {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            if (response.ok) {
+
+                alert("Dados inseridos na tbl opiniao_usuario com sucesso!");
+
+                // window.location.href = 'login.html';
+
+
+            } else {
+
+                console.log('Erro ao inserir dados na tbl opiniao_usuario!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                // finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
 
     function inserir() {
         // aguardar();
