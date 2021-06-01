@@ -10,12 +10,12 @@ var opiniao_usuario = require('../models').opiniao_usuario;
 let sessoes = [];
 
 /* Recuperar usuário por login e senha */
-router.post('/autenticar', function(req, res, next) {
+router.post('/autenticar', function (req, res, next) {
 	console.log('Recuperando usuário por login e senha');
 
 	var login = req.body.login; // depois de .body, use o nome (name) do campo em seu formulário de login
 	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
-	
+
 	let instrucaoSql = `select * from Usuario where login='${login}' and senha='${senha}'`;
 	console.log(instrucaoSql);
 
@@ -26,7 +26,7 @@ router.post('/autenticar', function(req, res, next) {
 
 		if (resultado.length == 1) {
 			sessoes.push(resultado[0].dataValues.login);
-			console.log('sessoes: ',sessoes);
+			console.log('sessoes: ', sessoes);
 			res.json(resultado[0]);
 		} else if (resultado.length == 0) {
 			res.status(403).send('Login e/ou senha inválido(s)');
@@ -37,122 +37,122 @@ router.post('/autenticar', function(req, res, next) {
 	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
-  	});
+	});
 });
 
 /* Cadastrar usuário */
-router.post('/cadastrar', function(req, res, next) {
+router.post('/cadastrar', function (req, res, next) {
 	console.log('Criando um usuário');
-	
+
 	Usuario.create({
-		nome : req.body.nome,
-		login : req.body.login,
+		nome: req.body.nome,
+		login: req.body.login,
 		senha: req.body.senha,
 		email: req.body.email,
 		dataNascimento: req.body.dataNascimento,
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
-        res.send(resultado);
-    }).catch(erro => {
+		res.send(resultado);
+	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
-  	});
+	});
 });
 
 
 /* Inserir dados auto_conhecimento */
-router.post('/inserir/:idUsuario', function(req, res, next) {
+router.post('/inserir/:idUsuario', function (req, res, next) {
 	console.log('Inserindo dados na tbl autoconhecimento');
 
 	let idUsuario = req.params.idUsuario;
-	
+
 	AutoConhecimento.create({
-		timidez : req.body.timidez,
-		oratoria : req.body.oratoria,
+		timidez: req.body.timidez,
+		oratoria: req.body.oratoria,
 		quebraDeExpectativa: req.body.quebraDeExpectativa,
 		solidao: req.body.solidao,
 		saudade: req.body.saudade,
-        felicidade: req.body.felicidade,
-        conquista: req.body.conquista,
-		fkUsuario : idUsuario
+		felicidade: req.body.felicidade,
+		conquista: req.body.conquista,
+		fkUsuario: idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
-        res.send(resultado);
-    }).catch(erro => {
+		res.send(resultado);
+	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
-  	});
+	});
 });
 
 /* Inserir dados PessoaMelhor */
-router.post('/inserirPessoaMelhor/:idUsuario', function(req, res, next) {
+router.post('/inserirPessoaMelhor/:idUsuario', function (req, res, next) {
 	console.log('Inserindo dados na tbl PessoaMelhor');
 
 	let idUsuario = req.params.idUsuario;
-	
+
 	PessoaMelhor.create({
-		timidez : req.body.timidez,
-		oratoria : req.body.oratoria,
+		timidez: req.body.timidez,
+		oratoria: req.body.oratoria,
 		quebraDeExpectativa: req.body.quebraDeExpectativa,
 		solidao: req.body.solidao,
 		saudade: req.body.saudade,
-        felicidade: req.body.felicidade,
-        conquista: req.body.conquista,
-		fkUsuario : idUsuario
+		felicidade: req.body.felicidade,
+		conquista: req.body.conquista,
+		fkUsuario: idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
-        res.send(resultado);
-    }).catch(erro => {
+		res.send(resultado);
+	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
-  	});
+	});
 });
 
 
 /* Inserir dado de estado emocional do usuario */
-router.post('/inserir_estado_emocional/:idUsuario', function(req, res, next) {
+router.post('/inserir_estado_emocional/:idUsuario', function (req, res, next) {
 	console.log('Inserindo dados na tbl dados de estado emocional do usuario');
 
 	let idUsuario = req.params.idUsuario;
-	
+
 	estado_emocional.create({
-		estado_emocional : req.body.estado_emocional,
-		fkUsuario : idUsuario
+		estado_emocional: req.body.estado_emocional,
+		fkUsuario: idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
-        res.send(resultado);
-    }).catch(erro => {
+		res.send(resultado);
+	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
-  	});
+	});
 });
 
 /* Inserir dados na tbl opiniao_usuario */
-router.post('/inserir_opiniao_usuario/:idUsuario', function(req, res, next) {
+router.post('/inserir_opiniao_usuario/:idUsuario', function (req, res, next) {
 	console.log('Inserindo dados na tbl opiniao_usuario');
 
 	let idUsuario = req.params.idUsuario;
-	
+
 	opiniao_usuario.create({
-		nota : req.body.name_select_opiniao_usuario,
-		fkUsuario : idUsuario
+		nota: req.body.name_select_opiniao_usuario,
+		fkUsuario: idUsuario
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
-        res.send(resultado);
-    }).catch(erro => {
+		res.send(resultado);
+	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
-  	});
+	});
 });
 
 
 /* Verificação de usuário */
-router.get('/sessao/:login', function(req, res, next) {
+router.get('/sessao/:login', function (req, res, next) {
 	let login = req.params.login;
 	console.log(`Verificando se o usuário ${login} tem sessão`);
-	
+
 	let tem_sessao = false;
-	for (let u=0; u<sessoes.length; u++) {
+	for (let u = 0; u < sessoes.length; u++) {
 		if (sessoes[u] == login) {
 			tem_sessao = true;
 			break;
@@ -166,16 +166,16 @@ router.get('/sessao/:login', function(req, res, next) {
 	} else {
 		res.sendStatus(403);
 	}
-	
+
 });
 
 
 /* Logoff de usuário */
-router.get('/sair/:login', function(req, res, next) {
+router.get('/sair/:login', function (req, res, next) {
 	let login = req.params.login;
 	console.log(`Finalizando a sessão do usuário ${login}`);
 	let nova_sessoes = []
-	for (let u=0; u<sessoes.length; u++) {
+	for (let u = 0; u < sessoes.length; u++) {
 		if (sessoes[u] != login) {
 			nova_sessoes.push(sessoes[u]);
 		}
@@ -186,7 +186,7 @@ router.get('/sair/:login', function(req, res, next) {
 
 
 /* Recuperar todos os usuários */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
 	console.log('Recuperando todos os usuários');
 	Usuario.findAndCountAll().then(resultado => {
 		console.log(`${resultado.count} registros`);
@@ -195,7 +195,39 @@ router.get('/', function(req, res, next) {
 	}).catch(erro => {
 		console.error(erro);
 		res.status(500).send(erro.message);
-  	});
+	});
 });
+
+/* ROTA QUE RECUPERA AS PUBLICAÇÕES DE UM USUÁRIO PELO ID */
+
+/*  
+router.get('/:idUsuario', function (req, res, next) {
+	console.log('Recuperando todas as publicações');
+
+	var idUsuario = req.params.idUsuario;
+
+	let instrucaoSql = `select timidez,
+	 oratoria,
+	  quebraDeExpectativa,
+	   solidao,
+	    saudade,
+		 felicidade,
+		  conquista
+		    from AutoConhecimento
+			 where fkUsuario = ${idUsuario};`;
+
+	sequelize.query(instrucaoSql, {
+		model: AutoConhecimento,
+		mapToModel: true
+	})
+		.then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+});
+*/
 
 module.exports = router;

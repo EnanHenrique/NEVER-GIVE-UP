@@ -9,13 +9,14 @@
     <title>Never Give Up</title>
 </head>
 
-<body class="conteudo_total">
+<body onload="nome_usuario()" class="conteudo_total">
 
     <div id="cabecalho" class="header">
         <div class="container">
             <img src="img/LOGO.png" alt="Logo da Never Give Up">
             <ul>
-                <li class="current_page"> <a href="">Fórum</a> </li>
+                <li class="current_page"> <a >Fórum</a> </li>
+                <li class="current_page"> <a id="nome_usuario_a"> Nome usuario </a> </li>
                 <!--
                 <li> <a href="index.html">HOME</a> </li>
                 <li> <a href="sobre.html">SOBRE</a> </li>
@@ -31,11 +32,11 @@
         <div class="container_estado_emocional">
             <form method="POST" id="form_estado_emocional" onsubmit="return inserir_estado_emocional()">
                 <div class="box_happy">
-                    <input type="radio" name="estado_emocional"  value="usuario_feliz" >
+                    <input type="radio" name="estado_emocional" value="usuario_feliz">
                     <img src="./img/emoji_feliz.png" alt="emoji_feliz">
                 </div>
                 <div class="box_normal">
-                    <input type="radio" name="estado_emocional"  value="usuario_normal">
+                    <input type="radio" name="estado_emocional" value="usuario_normal">
                     <img src="./img/emoji_normal.png" alt="emoji_normal">
                 </div>
                 <div class="box_sad">
@@ -43,7 +44,7 @@
                     <img src="./img/emoji_triste.png" alt="emoji_triste">
                 </div>
 
-                <input class="btn_emocional" type="submit"  id="id_btn_estado_emocional">
+                <input class="btn_emocional" type="submit" id="id_btn_estado_emocional">
 
             </form>
         </div>
@@ -51,22 +52,24 @@
 
     <div class="div_englobando_personagens">
         <div class="div_nome_personagens" id="div_nome_personagens">
-            <h1>Nome de personagens do anime Naruto que você mais gosta:  </h1> 
-            <textarea maxlength="20" placeholder="Digite aqui" name="" id="textarea_personagens" cols="30" rows="3"></textarea>
+            <h1>Nome de personagens do anime Naruto que você mais gosta: </h1>
+            <textarea maxlength="20" placeholder="Digite aqui" name="" id="textarea_personagens" cols="30"
+                rows="3"></textarea>
             <br>
-            <button onclick="adicionar_personagem()">Adicionar personagem</button> <button onclick="limpar_div_personagens()">limpar personagens</button>
+            <button onclick="adicionar_personagem()">Adicionar personagem</button> <button
+                onclick="limpar_div_personagens()">limpar personagens</button>
             <div id="div_mostrar_personagens">
-    
+
             </div>
         </div>
-    
+
         <div id="div_foto_personagens" class="div_foto_personagens">
-    
+
         </div>
     </div>
 
 
-    <div class="div_auto_conhecimento">
+    <div id="div_auto_conhecimento" class="div_auto_conhecimento">
 
         <h1>Como você reage a estes estados emocionais?</h1>
 
@@ -103,7 +106,7 @@
 
     </div>
 
-    <div class="div_pessoa_melhor">
+    <div id="div_pessoa_melhor" class="div_pessoa_melhor">
 
         <h1>Como você acha que deveria reagir a estes estados emocionais para se tornar uma pessoa melhor?</h1>
 
@@ -136,9 +139,16 @@
         </form>
     </div>
 
+    <!-- <button onclick="obterPublicacoesPorUsuario()">CLIQUE AQUI</button>
+
+    <div id="div_mostrar_auto_conhecimento">
+        <h1>quero mostrar aqui</h1>
+    </div> 
+-->
+
     <div class="div_opiniao_usuario">
         <div class="div_opiniao_usuario_container">
-            <h1> Nos dê a sua opinião logo abaixo sobre o site com uma nota de  (0 a 5)  ↓ </h1>
+            <h1> Nos dê a sua opinião logo abaixo sobre o site com uma nota de (0 a 5) ↓ </h1>
 
             <div class="div_select_nota">
                 <h3>Escolha a nota aqui:</h3>
@@ -161,12 +171,66 @@
         </div>
     </div>
 
-    
+
 </body>
 
 </html>
 
 <script>
+
+    /*
+    function obterPublicacoesPorUsuario() {
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        // alert(idUsuario);
+            fetch(`/usuarios/${idUsuario}`)
+                .then(resposta => {
+                    if (resposta.ok) {
+                        resposta.json().then(function (resposta) {
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                            // alert(JSON.stringify(resposta))
+                            // div_mostrar_auto_conhecimento.innerHTML = instrucaoSql;
+                            atualizarFeed();
+                        });
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
+                });
+        }
+    */
+
+
+    /*
+   function atualizarFeed(publicacoes) {
+       var feed = document.getElementById("div_mostrar_auto_conhecimento");
+       feed.innerHTML = feed;
+       for (let i = 0; i < publicacoes.length; i++) {
+           var publicacao = publicacoes[i];
+
+           var divPublicacao = document.createElement("div")
+           var divNome = document.createElement("div")
+           var divDescricao = document.createElement("div")
+
+           div_mostrar_auto_conhecimento.innerHTML = `${timidez}`;
+           divDescricao.innerHTML = publicacao.descricao;
+
+           divPublicacao.className = "publicacao"
+           divNome.className = "nome";
+           divDescricao.className = "descricao";
+
+           divPublicacao.appendChild(divNome);
+           divPublicacao.appendChild(divDescricao);
+
+           feed.appendChild(divPublicacao);
+       }
+   }*/
+
+   function nome_usuario() {
+       var nomeUsuario = sessionStorage.nome_usuario_meuapp;
+       nome_usuario_a.innerHTML = nomeUsuario;
+   }
 
     function limpar_div_personagens() {
         numero = 0;
@@ -190,19 +254,19 @@
 
         else if (personagem.toLowerCase() == "naruto") {
             lista_personagens.push(personagem);
-            div_foto_personagens.innerHTML += 
-            ` <img style = "width: 300px; margin: 10px;" src="https://i.pinimg.com/736x/a9/4b/10/a94b105911007f7262c52b242766a58a.jpg" 
+            div_foto_personagens.innerHTML +=
+                ` <img style = "width: 300px; margin: 10px;" src="https://i.pinimg.com/736x/a9/4b/10/a94b105911007f7262c52b242766a58a.jpg" 
             alt="imagem do naruto"> `;
             div_mostrar_personagens.innerHTML += `  ${personagem.toUpperCase()} <br>  `;
-                numero++;
+            numero++;
         }
         else if (personagem.toLowerCase() == "sasuke") {
             lista_personagens.push(personagem);
-            div_foto_personagens.innerHTML += 
-            ` <img style = "width: 302px; margin: 10px;" src="https://i.pinimg.com/originals/f5/a2/35/f5a235ed524781a7f837361a0970f16d.jpg" 
+            div_foto_personagens.innerHTML +=
+                ` <img style = "width: 302px; margin: 10px;" src="https://i.pinimg.com/originals/f5/a2/35/f5a235ed524781a7f837361a0970f16d.jpg" 
             alt="imagem do sasuke"> `;
             div_mostrar_personagens.innerHTML += `  ${personagem.toUpperCase()} <br>  `;
-                numero++;
+            numero++;
         }
 
         else {
@@ -210,11 +274,11 @@
             div_mostrar_personagens.innerHTML = "";
             for (var contador = 0; contador < lista_personagens.length; contador++) {
                 div_mostrar_personagens.innerHTML += ` ${lista_personagens[contador].toUpperCase()} <br>  `;
-                numero++;            
+                numero++;
             }
         }
 
-        
+
         textarea_personagens.value = "";
     }
 
@@ -256,21 +320,56 @@
             method: "POST",
             body: formulario
         }).then(function (response) {
-            if (response.ok) {
 
-                alert("Dados inseridos na tbl autoconhecimento com sucesso!");
+            let in_timidez = idTimidez.value;
+            let in_oratoria = idOratoria.value;
+            let in_quebra_expectativa = idQuebraDeExpectativa;
+            let in_solidao = idSolidao.value;
+            let in_saudade = idSaudade.value;
+            let in_felicidade = idFelicidade.value;
+            let in_conquista = idConquista.value;
 
-                // window.location.href = 'login.html';
-
-
-            } else {
-
-                console.log('Erro ao inserir dados na tbl autoconhecimento!');
-                response.text().then(function (resposta) {
-                    div_erro.innerHTML = resposta;
-                });
-                // finalizar_aguardar();
+            if (in_timidez == "") {
+                alert("Digite um campo válido!");
             }
+            else if (in_oratoria == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_quebra_expectativa == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_solidao == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_saudade == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_felicidade == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_conquista == "") {
+                alert("Digite um campo válido!");
+            }
+
+            else {
+                if (response.ok) {
+
+                    alert("Dados inseridos na tbl autoconhecimento com sucesso!");
+                    div_auto_conhecimento.style.display = "none";
+
+                    // window.location.href = 'login.html';
+
+
+                } else {
+
+                    console.log('Erro ao inserir dados na tbl autoconhecimento!');
+                    response.text().then(function (resposta) {
+                        div_erro.innerHTML = resposta;
+                    });
+                    // finalizar_aguardar();
+                }
+            }
+
         });
 
         return false;
@@ -284,25 +383,60 @@
             method: "POST",
             body: formulario
         }).then(function (response) {
-            if (response.ok) {
 
-                alert("Dados inseridos na tbl PessoaMelhor com sucesso!");
+            let in_timidez = idTimidez2.value;
+            let in_oratoria = idOratoria2.value;
+            let in_quebra_expectativa = idQuebraDeExpectativa2;
+            let in_solidao = idSolidao2.value;
+            let in_saudade = idSaudade2.value;
+            let in_felicidade = idFelicidade2.value;
+            let in_conquista = idConquista2.value;
 
-                // window.location.href = 'login.html';
-
-
-            } else {
-
-                console.log('Erro ao inserir dados na tbl PessoaMelhor!');
-                response.text().then(function (resposta) {
-                    div_erro.innerHTML = resposta;
-                });
-                // finalizar_aguardar();
+            if (in_timidez == "") {
+                alert("Digite um campo válido!");
             }
+            else if (in_oratoria == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_quebra_expectativa == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_solidao == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_saudade == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_felicidade == "") {
+                alert("Digite um campo válido!");
+            }
+            else if (in_conquista == "") {
+                alert("Digite um campo válido!");
+            }
+
+            else {
+                if (response.ok) {
+
+                    alert("Dados inseridos na tbl PessoaMelhor com sucesso!");
+                    div_pessoa_melhor.style.display = "none";
+                    // window.location.href = 'login.html';
+
+
+                } else {
+
+                    console.log('Erro ao inserir dados na tbl PessoaMelhor!');
+                    response.text().then(function (resposta) {
+                        div_erro.innerHTML = resposta;
+                    });
+                    // finalizar_aguardar();
+                }
+            }
+
         });
 
         return false;
     }
+
 
     function inserir_estado_emocional() {
         // aguardar();
@@ -312,9 +446,13 @@
             method: "POST",
             body: formulario
         }).then(function (response) {
+
+
+
             if (response.ok) {
 
                 alert("Dados enviados com sucesso! Agradecemos pelo envio da informação.");
+
 
                 div_estado_emocional.style.display = "none";
                 div_nome_personagens.style.marginTop = "100px";
@@ -330,6 +468,8 @@
                 });
                 // finalizar_aguardar();
             }
+
+
         });
 
         return false;

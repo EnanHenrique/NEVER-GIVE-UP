@@ -3,6 +3,14 @@
   padding: 0;
 }
 
+input {
+  outline: 0;
+}
+
+textarea {
+  outline:0;
+}
+
 /* Scrool bar */
 
 ::-webkit-scrollbar {
@@ -62,6 +70,17 @@
   font-family: "Courier New", Courier, monospace;
   display: inline-block;
   padding: 41px;
+}
+
+#nome_usuario_a {
+  cursor: pointer ;
+  transition:  background 0.35s;
+  border: solid 2px #ffae00;
+  font-size: 20px;
+}
+
+#nome_usuario_a:hover {
+  background-color: #3c793c;
 }
 
 .header a {
@@ -314,15 +333,12 @@
   padding: 0.5%;
 }
 
-#btn_entrar {
+.botao_cadastrar , .botao_login {
   margin-top: 50px;
-}
-
-.botao_cadastrar, .botao_login {
   border-radius: 4px;
   background-color: rgb(219, 219, 219);
-  width: 20%;
-  margin-left: 40%;
+  width: 30%;
+  margin-left: 35%;
   border: none;
   cursor: pointer;
   transition: 0.4s;
@@ -330,7 +346,22 @@
   padding: 10px;
   text-transform: uppercase;
   font-size: 15px;
-  
+}
+
+.botao_cadastrar {
+  margin-bottom: 60px;
+  margin-top: -9px;
+  border-radius: 4px;
+  background-color: rgb(219, 219, 219);
+  width: 30%;
+  margin-left: 35%;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+  font-family: "exo2";
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 
 .formulario_cadastro h1, .formulario_login h1 {
@@ -747,3 +778,37 @@
 
 
                                                       /* DIV OPINIAO DO USUARIO */
+
+                                                      /* MOSTRAR TABELAS */
+#div_mostrar_auto_conhecimento {
+  margin-bottom: 100px;
+  margin-top: 100px;
+  height: 500px;
+  background-color: red;
+}
+                                                      /* MOSTRAR TABELAS */
+
+
+                                                      /* Pagina estatistica */
+.grafico {
+  border-radius: 7px;
+  margin-left: 10%;
+  width: 80%;
+  height:700px ;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  background-color: #222222;
+}
+
+.grafico_container {
+  border-radius: 7px;
+  padding: 30px;
+  background-color: #222222;
+  display: inline-block;
+  width: 50%;
+  height: 500px;
+  margin: auto;
+}
+                                                      /* Pagina estatistica */
+                                    

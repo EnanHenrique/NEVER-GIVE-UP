@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="nome_usuario()" class="conteudo_total">
+
+    <div id="cabecalho" class="header">
+        <div class="container">
+            <img src="img/LOGO.png" alt="Logo da Never Give Up">
+            <ul>
+                <li class="current_page"> <a> Estatísticas ADM </a> </li>
+                <li class="current_page"> <a id="nome_usuario_a"> Nome usuario </a> </li>
+                <!--
+                <li> <a href="index.html">HOME</a> </li>
+                <li> <a href="sobre.html">SOBRE</a> </li>
+                <li> <a href="cadastro.html">CADASTRO</a> </li>
+                <li> <a href="login.html">LOGIN</a> </li>
+                -->
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="grafico">
+        <div class="grafico_container">
+            <canvas id="myChartPizza"></canvas>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function nome_usuario() {
+        var nomeUsuario = sessionStorage.nome_usuario_meuapp;
+        nome_usuario_a.innerHTML = nomeUsuario;
+    }
+
+    // Grafico de pizza 
+    const labelsPizza = ["Nota0", "Nota1", "Nota2","Nota3","Nota4","Nota5"];
+
+    const dataPizza = {
+        labels: labelsPizza,
+        datasets: [{
+            hoverBackgroundColor: '#222222',
+            hoverBorderColor:'white',
+            borderRadius: '6',
+            hoverBorderWidth: '1.5',
+            borderWidth: '3',
+            label: 'opiniao_usuario',
+            backgroundColor: ['#ae0303', '#ae0303', '#d3d200','#d3d200','green','green'],
+            borderColor: '#222222',
+            data: [30, 20, 17, 20, 10, 30],
+        },
+        ],
+    };
+
+    const configPizza = {
+        type: 'pie',
+        data: dataPizza,
+        options: {
+             maintainAspectRatio: false 
+            },
+    }
+
+    var myChartLine = new Chart(
+        document.getElementById('myChartPizza'),
+        configPizza
+    );
+</script>
