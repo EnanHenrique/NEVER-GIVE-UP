@@ -45,9 +45,9 @@
         <input autocomplete="off" type="password" id="idConfirmarSenha" placeholder="Digite sua senha novamente">
 
         <input style="display: none;" type="submit" id="btn_entrar" value="Cadastrar" class="botao_cadastrar">
-        
+
     </form>
-    <button  onclick="verificar_cadastro()" class="botao_cadastrar">Cadastrar</button>
+    <button onclick="verificar_cadastro()" class="botao_cadastrar">Cadastrar</button>
 
     <img src="img/loading-img.gif" id="img_aguarde"
         style="display: none; width:150px; margin: auto; margin-bottom: 50px;">
@@ -67,8 +67,8 @@
                 <li> <a target="_blank"
                         href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMScnbzdbHssWqJQfvJsVLMDzTcNmDLPLzNcGrxLRGrnsDgWrRhSfLwdHLLLJHmFPbWjnWN">
                         Contato </a> </li>
-                <li> Tire suas dúvidas </li>
-                <li> Dê sua opinião </li>
+                <li> <a href="sobre.html"> Tire suas dúvidas </a> </li>
+                <li> <a onclick="dar_opiniao()"> Dê sua opinião </a> </li>
             </ul>
         </div>
 
@@ -88,6 +88,10 @@
 -->
 
 <script>
+
+    function dar_opiniao() {
+        alert("Faça cadastro para dar sua opinão sobre o site");
+    }
 
     function verificar_cadastro() {
         var nome = idNome.value;

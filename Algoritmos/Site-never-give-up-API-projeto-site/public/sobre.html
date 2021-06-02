@@ -68,7 +68,7 @@
             <ul>
                 <li> <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMScnbzdbHssWqJQfvJsVLMDzTcNmDLPLzNcGrxLRGrnsDgWrRhSfLwdHLLLJHmFPbWjnWN"> Contato </a>  </li>
                 <li> Tire suas dúvidas </li>
-                <li> Dê sua opinião </li>
+                <li> <a href="cadastro.html" onclick="dar_opiniao()"> Dê sua opinião </a>  </li>
             </ul>
         </div>
 
@@ -83,5 +83,9 @@
 <script>
     function comece_a_mudar() {
         window.location.href= "cadastro.html";
+    }
+
+    function dar_opiniao() {
+        alert("Faça cadastro para dar sua opinão sobre o site");
     }
 </script>

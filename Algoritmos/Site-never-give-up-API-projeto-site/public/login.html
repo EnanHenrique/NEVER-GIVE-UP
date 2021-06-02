@@ -56,8 +56,8 @@
                 <li> <a target="_blank"
                         href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMScnbzdbHssWqJQfvJsVLMDzTcNmDLPLzNcGrxLRGrnsDgWrRhSfLwdHLLLJHmFPbWjnWN">
                         Contato </a> </li>
-                <li> Tire suas dúvidas </li>
-                <li> Dê sua opinião </li>
+                <li> <a href="sobre.html"> Tire suas dúvidas </a> </li>
+                <li> <a onclick="dar_opiniao()" href="cadastro.html"> Dê sua opinião </a>  </li>
             </ul>
         </div>
 
@@ -72,6 +72,10 @@
 
 </html>
 <script>
+
+    function dar_opiniao() {
+        alert("Faça cadastro para dar sua opinão sobre o site");
+    }
 
     function entrar() {
         // aguardar();
@@ -108,7 +112,7 @@
                         sessionStorage.nome_usuario_meuapp = json.nome;
                         sessionStorage.id_usuario_meuapp = json.idUsuario;
 
-                        
+
                         if (login == "enan.oliveira" && senha == "senhaenan") {
                             window.open('estatisticas.html', '_blank');
                         }
@@ -116,7 +120,7 @@
                             // window.location.href = 'forum.html';
                             window.open('forum.html', '_blank');
                         }
-                        
+
                     });
 
                 } else {
