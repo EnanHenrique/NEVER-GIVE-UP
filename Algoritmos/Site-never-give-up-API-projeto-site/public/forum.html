@@ -95,9 +95,11 @@
 
             <!--<input type="submit" value="inserir">-->
 
-            <button type="submit">Enviar</button>
+            <button style="display: none;" type="submit">Enviar</button>
 
         </form>
+
+            <button onclick="verificar_dados_autoconhecimento()">Enviar</button>
 
         <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
             Erro ao inserir dados
@@ -133,9 +135,11 @@
 
             <!--<input type="submit" value="inserirPessoaMelhor">-->
 
-            <button type="submit">Enviar</button>
+            <button style="display:none;" type="submit">Enviar</button>
 
         </form>
+
+            <button onclick="verificar_dados_pessoamelhor()">Enviar</button>
     </div>
 
     <!-- <button onclick="obterPublicacoesPorUsuario()">CLIQUE AQUI</button>
@@ -239,7 +243,7 @@
        }
    }*/
 
-   function nome_usuario() {
+   function nome_usuario() { // buscando nome de usuario na session storage de login
        var nomeUsuario = sessionStorage.nome_usuario_meuapp;
        nome_usuario_a.innerHTML = nomeUsuario;
    }
@@ -325,17 +329,8 @@
         return false;
     }
 
-
-    function inserir() {
-        // aguardar();
-        var formulario = new URLSearchParams(new FormData(form_auto_conhecimento));
-        var idUsuario = sessionStorage.id_usuario_meuapp;
-        fetch(`/usuarios/inserir/${idUsuario}`, {
-            method: "POST",
-            body: formulario
-        }).then(function (response) {
-
-            let in_timidez = idTimidez.value;
+    function verificar_dados_autoconhecimento() {
+        let in_timidez = idTimidez.value;
             let in_oratoria = idOratoria.value;
             let in_quebra_expectativa = idQuebraDeExpectativa;
             let in_solidao = idSolidao.value;
@@ -364,11 +359,23 @@
             else if (in_conquista == "") {
                 alert("Digite um campo válido!");
             }
-
             else {
+                inserir();
+            }
+    }
+
+    function inserir() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_auto_conhecimento));
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        fetch(`/usuarios/inserir/${idUsuario}`, {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
                 if (response.ok) {
 
-                    alert("Dados inseridos na tbl autoconhecimento com sucesso!");
+                    alert("Dados enviados para o servidor da NeverGiveUp com sucesso!");
                     div_auto_conhecimento.style.display = "none";
 
                     // window.location.href = 'login.html';
@@ -382,23 +389,14 @@
                     });
                     // finalizar_aguardar();
                 }
-            }
-
+            
         });
 
         return false;
     }
 
-    function inserirPessoaMelhor() {
-        // aguardar();
-        var formulario = new URLSearchParams(new FormData(form_pessoa_melhor));
-        var idUsuario = sessionStorage.id_usuario_meuapp;
-        fetch(`/usuarios/inserirPessoaMelhor/${idUsuario}`, {
-            method: "POST",
-            body: formulario
-        }).then(function (response) {
-
-            let in_timidez = idTimidez2.value;
+    function verificar_dados_pessoamelhor() {
+        let in_timidez = idTimidez2.value;
             let in_oratoria = idOratoria2.value;
             let in_quebra_expectativa = idQuebraDeExpectativa2;
             let in_solidao = idSolidao2.value;
@@ -427,8 +425,20 @@
             else if (in_conquista == "") {
                 alert("Digite um campo válido!");
             }
-
             else {
+                inserirPessoaMelhor();
+            }
+    }
+
+    function inserirPessoaMelhor() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_pessoa_melhor));
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        fetch(`/usuarios/inserirPessoaMelhor/${idUsuario}`, {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
                 if (response.ok) {
 
                     alert("Dados inseridos na tbl PessoaMelhor com sucesso!");
@@ -444,8 +454,7 @@
                     });
                     // finalizar_aguardar();
                 }
-            }
-
+            
         });
 
         return false;
