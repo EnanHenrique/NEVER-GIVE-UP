@@ -68,7 +68,6 @@
         </div>
     </div>
 
-
     <div id="div_auto_conhecimento" class="div_auto_conhecimento">
 
         <h1>Como você reage a estes estados emocionais?</h1>
@@ -146,7 +145,7 @@
     </div> 
 -->
 
-    <div class="div_opiniao_usuario">
+    <div id="div_opiniao_usuario" class="div_opiniao_usuario">
         <div class="div_opiniao_usuario_container">
             <h1> Nos dê a sua opinião logo abaixo sobre o site com uma nota de (0 a 5) ↓ </h1>
 
@@ -167,6 +166,19 @@
                 </form>
 
             </div>
+
+        </div>
+    </div>
+
+    <div id="div_congratulations" class="div_congratulations">
+        <div class="div_congratulations_container">
+            <h1>Parabéns e muito obrigado por fazer parte da família que nunca desiste!</h1>
+
+            <img src="https://i.pinimg.com/originals/db/e8/ae/dbe8ae9521e5f9bab72d0aea3e9c6739.jpg" alt="Imagem do Naruto feliz">
+
+            <span>
+                
+            </span>
 
         </div>
     </div>
@@ -293,7 +305,9 @@
         }).then(function (response) {
             if (response.ok) {
 
-                alert("Dados inseridos na tbl opiniao_usuario com sucesso!");
+                alert("Sua nota foi enviada com sucesso, agradecemos pela sua opinião!");
+                div_opiniao_usuario.style.display = "none";
+                div_congratulations.style.display = "block";
 
                 // window.location.href = 'login.html';
 
