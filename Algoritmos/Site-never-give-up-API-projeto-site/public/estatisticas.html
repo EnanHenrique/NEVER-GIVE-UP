@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -37,6 +37,15 @@
         </div>
     </div>
 
+
+
+    <!-- Gráfico de Barras -->
+    <div class="grafico">
+        <div class="grafico_container">
+            <canvas id="myChartBar"></canvas>
+        </div>
+    </div>
+
 </body>
 
 </html>
@@ -48,18 +57,18 @@
     }
 
     // Grafico de pizza 
-    const labelsPizza = ["Nota0", "Nota1", "Nota2","Nota3","Nota4","Nota5"];
+    const labelsPizza = ["Nota0", "Nota1", "Nota2", "Nota3", "Nota4", "Nota5"];
 
     const dataPizza = {
         labels: labelsPizza,
         datasets: [{
             hoverBackgroundColor: '#222222',
-            hoverBorderColor:'white',
+            hoverBorderColor: 'white',
             borderRadius: '6',
             hoverBorderWidth: '1.5',
             borderWidth: '3',
             label: 'opiniao_usuario',
-            backgroundColor: ['#ae0303', '#ae0303', '#d3d200','#d3d200','green','green'],
+            backgroundColor: ['#ae0303', '#ae0303', '#d3d200', '#d3d200', 'green', 'green'],
             borderColor: '#222222',
             data: [30, 20, 17, 20, 10, 30],
         },
@@ -70,12 +79,35 @@
         type: 'pie',
         data: dataPizza,
         options: {
-             maintainAspectRatio: false 
-            },
+            maintainAspectRatio: false
+        },
     }
 
     var myChartLine = new Chart(
         document.getElementById('myChartPizza'),
         configPizza
     );
+
+    // grafico de barra
+
+    const labelsBar = ["Feliz", "Normal", "Triste"];
+    const dataBar = {
+        labels: labelsBar,
+        datasets: [{
+            label: 'Estado emocional dos usuarios',
+            backgroundColor: ['green', '#d3d200', '#ae0303'],
+            borderColor: 'red',
+            data: [40, 75, 110],
+        },
+        ],
+    };
+
+    const configBar = {
+        type: 'bar',
+        data: dataBar,
+        options: { maintainAspectRatio: false },
+    }
+
+    var myChartBar = new Chart(document.getElementById('myChartBar'), configBar);
+
 </script>
