@@ -15,7 +15,7 @@
         <div class="container">
             <img src="img/LOGO.png" alt="Logo da Never Give Up">
             <ul>
-                <li class="current_page"> <a >Fórum</a> </li>
+                <li class="current_page"> <a>Fórum</a> </li>
                 <li class="current_page"> <a id="nome_usuario_a"> Nome usuario </a> </li>
                 <!--
                 <li> <a href="index.html">HOME</a> </li>
@@ -99,11 +99,17 @@
 
         </form>
 
-            <button onclick="verificar_dados_autoconhecimento()">Enviar</button>
+        <button onclick="verificar_dados_autoconhecimento()">Enviar</button>
+
+        <button onclick="obterPublicacoesPorUsuario()">Ver publicacoes</button>
 
         <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
             Erro ao inserir dados
         </div>
+
+    </div>
+
+    <div id="div_mostrar_conteudo">
 
     </div>
 
@@ -139,7 +145,7 @@
 
         </form>
 
-            <button onclick="verificar_dados_pessoamelhor()">Enviar</button>
+        <button onclick="verificar_dados_pessoamelhor()">Enviar</button>
     </div>
 
     <!-- <button onclick="obterPublicacoesPorUsuario()">CLIQUE AQUI</button>
@@ -178,10 +184,11 @@
         <div class="div_congratulations_container">
             <h1>Parabéns e muito obrigado por fazer parte da família que nunca desiste!</h1>
 
-            <img src="https://i.pinimg.com/originals/db/e8/ae/dbe8ae9521e5f9bab72d0aea3e9c6739.jpg" alt="Imagem do Naruto feliz">
+            <img src="https://i.pinimg.com/originals/db/e8/ae/dbe8ae9521e5f9bab72d0aea3e9c6739.jpg"
+                alt="Imagem do Naruto feliz">
 
             <span>
-                
+
             </span>
 
         </div>
@@ -194,59 +201,32 @@
 
 <script>
 
-    /*
     function obterPublicacoesPorUsuario() {
         var idUsuario = sessionStorage.id_usuario_meuapp;
-        // alert(idUsuario);
-            fetch(`/usuarios/${idUsuario}`)
-                .then(resposta => {
-                    if (resposta.ok) {
-                        resposta.json().then(function (resposta) {
-                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                            // alert(JSON.stringify(resposta))
-                            // div_mostrar_auto_conhecimento.innerHTML = instrucaoSql;
-                            atualizarFeed();
-                        });
-                    } else {
-                        console.error('Nenhum dado encontrado ou erro na API');
-                    }
-                })
-                .catch(function (error) {
-                    console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
-                });
-        }
-    */
 
+        fetch(`/usuarios/${idUsuario}`)
+            .then(resposta => {
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-    /*
-   function atualizarFeed(publicacoes) {
-       var feed = document.getElementById("div_mostrar_auto_conhecimento");
-       feed.innerHTML = feed;
-       for (let i = 0; i < publicacoes.length; i++) {
-           var publicacao = publicacoes[i];
+                        div_mostrar_conteudo.innerHTML = `${JSON.stringify(resposta)}<br>`;
 
-           var divPublicacao = document.createElement("div")
-           var divNome = document.createElement("div")
-           var divDescricao = document.createElement("div")
+                        // alert(JSON.stringify(resposta))
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
+            });
+    }
 
-           div_mostrar_auto_conhecimento.innerHTML = `${timidez}`;
-           divDescricao.innerHTML = publicacao.descricao;
-
-           divPublicacao.className = "publicacao"
-           divNome.className = "nome";
-           divDescricao.className = "descricao";
-
-           divPublicacao.appendChild(divNome);
-           divPublicacao.appendChild(divDescricao);
-
-           feed.appendChild(divPublicacao);
-       }
-   }*/
-
-   function nome_usuario() { // buscando nome de usuario na session storage de login
-       var nomeUsuario = sessionStorage.nome_usuario_meuapp;
-       nome_usuario_a.innerHTML = nomeUsuario;
-   }
+    function nome_usuario() { // buscando nome de usuario na session storage de login
+        var nomeUsuario = sessionStorage.nome_usuario_meuapp;
+        nome_usuario_a.innerHTML = nomeUsuario;
+    }
 
     function limpar_div_personagens() {
         numero = 0;
@@ -330,37 +310,37 @@
 
     function verificar_dados_autoconhecimento() {
         let in_timidez = idTimidez.value;
-            let in_oratoria = idOratoria.value;
-            let in_quebra_expectativa = idQuebraDeExpectativa;
-            let in_solidao = idSolidao.value;
-            let in_saudade = idSaudade.value;
-            let in_felicidade = idFelicidade.value;
-            let in_conquista = idConquista.value;
+        let in_oratoria = idOratoria.value;
+        let in_quebra_expectativa = idQuebraDeExpectativa;
+        let in_solidao = idSolidao.value;
+        let in_saudade = idSaudade.value;
+        let in_felicidade = idFelicidade.value;
+        let in_conquista = idConquista.value;
 
-            if (in_timidez == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_oratoria == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_quebra_expectativa == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_solidao == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_saudade == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_felicidade == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_conquista == "") {
-                alert("Digite um campo válido!");
-            }
-            else {
-                inserir();
-            }
+        if (in_timidez == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_oratoria == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_quebra_expectativa == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_solidao == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_saudade == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_felicidade == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_conquista == "") {
+            alert("Digite um campo válido!");
+        }
+        else {
+            inserir();
+        }
     }
 
     function inserir() {
@@ -372,23 +352,23 @@
             body: formulario
         }).then(function (response) {
 
-                if (response.ok) {
+            if (response.ok) {
 
-                    alert("Dados enviados para o servidor da NeverGiveUp com sucesso!");
-                    div_auto_conhecimento.style.display = "none";
+                alert("Dados enviados para o servidor da NeverGiveUp com sucesso!");
+                div_auto_conhecimento.style.display = "none";
 
-                    // window.location.href = 'login.html';
+                // window.location.href = 'login.html';
 
 
-                } else {
+            } else {
 
-                    console.log('Erro ao inserir dados na tbl autoconhecimento!');
-                    response.text().then(function (resposta) {
-                        div_erro.innerHTML = resposta;
-                    });
-                    // finalizar_aguardar();
-                }
-            
+                console.log('Erro ao inserir dados na tbl autoconhecimento!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                // finalizar_aguardar();
+            }
+
         });
 
         return false;
@@ -396,37 +376,37 @@
 
     function verificar_dados_pessoamelhor() {
         let in_timidez = idTimidez2.value;
-            let in_oratoria = idOratoria2.value;
-            let in_quebra_expectativa = idQuebraDeExpectativa2;
-            let in_solidao = idSolidao2.value;
-            let in_saudade = idSaudade2.value;
-            let in_felicidade = idFelicidade2.value;
-            let in_conquista = idConquista2.value;
+        let in_oratoria = idOratoria2.value;
+        let in_quebra_expectativa = idQuebraDeExpectativa2;
+        let in_solidao = idSolidao2.value;
+        let in_saudade = idSaudade2.value;
+        let in_felicidade = idFelicidade2.value;
+        let in_conquista = idConquista2.value;
 
-            if (in_timidez == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_oratoria == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_quebra_expectativa == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_solidao == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_saudade == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_felicidade == "") {
-                alert("Digite um campo válido!");
-            }
-            else if (in_conquista == "") {
-                alert("Digite um campo válido!");
-            }
-            else {
-                inserirPessoaMelhor();
-            }
+        if (in_timidez == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_oratoria == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_quebra_expectativa == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_solidao == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_saudade == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_felicidade == "") {
+            alert("Digite um campo válido!");
+        }
+        else if (in_conquista == "") {
+            alert("Digite um campo válido!");
+        }
+        else {
+            inserirPessoaMelhor();
+        }
     }
 
     function inserirPessoaMelhor() {
@@ -438,22 +418,22 @@
             body: formulario
         }).then(function (response) {
 
-                if (response.ok) {
+            if (response.ok) {
 
-                    alert("Dados enviados para o servidor da NeverGiveUp com sucesso!");
-                    div_pessoa_melhor.style.display = "none";
-                    // window.location.href = 'login.html';
+                alert("Dados enviados para o servidor da NeverGiveUp com sucesso!");
+                div_pessoa_melhor.style.display = "none";
+                // window.location.href = 'login.html';
 
 
-                } else {
+            } else {
 
-                    console.log('Erro ao inserir dados na tbl PessoaMelhor!');
-                    response.text().then(function (resposta) {
-                        div_erro.innerHTML = resposta;
-                    });
-                    // finalizar_aguardar();
-                }
-            
+                console.log('Erro ao inserir dados na tbl PessoaMelhor!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                // finalizar_aguardar();
+            }
+
         });
 
         return false;

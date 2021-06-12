@@ -199,35 +199,37 @@ router.get('/', function (req, res, next) {
 });
 
 /* ROTA QUE RECUPERA AS PUBLICAÇÕES DE UM USUÁRIO PELO ID */
-
-/*  
-router.get('/:idUsuario', function (req, res, next) {
+router.get('/:idUsuario', function(req, res, next) {
 	console.log('Recuperando todas as publicações');
-
+	
 	var idUsuario = req.params.idUsuario;
 
-	let instrucaoSql = `select timidez,
-	 oratoria,
-	  quebraDeExpectativa,
-	   solidao,
-	    saudade,
-		 felicidade,
-		  conquista
-		    from AutoConhecimento
-			 where fkUsuario = ${idUsuario};`;
+    let instrucaoSql = `SELECT 
+    usuario.nome,
+    timidez,
+    oratoria,
+    quebraDeExpectativa,
+    solidao,
+    saudade,
+    felicidade,
+    conquista
+    FROM autoconhecimento
+    INNER JOIN usuario
+    ON autoconhecimento.fkUsuario = Usuario.idUsuario
+    WHERE fkUsuario = ${idUsuario}
+    ORDER BY autoconhecimento.idAutoConhecimento DESC`;
 
 	sequelize.query(instrucaoSql, {
 		model: AutoConhecimento,
-		mapToModel: true
+		mapToModel: true 
 	})
-		.then(resultado => {
-			console.log(`Encontrados: ${resultado.length}`);
-			res.json(resultado);
-		}).catch(erro => {
-			console.error(erro);
-			res.status(500).send(erro.message);
-		});
+	.then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		res.json(resultado);
+	}).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
 });
-*/
 
 module.exports = router;
