@@ -111,6 +111,31 @@
 
     <div id="div_mostrar_conteudo">
 
+        <div id="div_nome_usuario_autoconhecimento">
+            <h2> Usuario: </h2>
+        </div>
+        <div id="div_timidez_usuario_autoconhecimento">
+            <h2> Timidez: </h2>
+        </div>
+        <div id="div_oratoria_usuario_autoconhecimento">
+            <h2> Oratoria: </h2>
+        </div>
+        <div id="div_quebraDeExpectativa_usuario_autoconhecimento">
+            <h2> Quebra de Expectativa: </h2>
+        </div>
+        <div id="div_solidao_usuario_autoconhecimento">
+            <h2> Solidao: </h2>
+        </div>
+        <div id="div_saudade_usuario_autoconhecimento">
+            <h2> Saudade: </h2>
+        </div>
+        <div id="div_felicidade_usuario_autoconhecimento">
+            <h2> Felicidade: </h2>
+        </div>
+        <div id="div_conquista_usuario_autoconhecimento">
+            <h2> Conquista: </h2>
+        </div>
+
     </div>
 
     <div id="div_pessoa_melhor" class="div_pessoa_melhor">
@@ -210,9 +235,19 @@
                     resposta.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                        div_mostrar_conteudo.innerHTML = `${JSON.stringify(resposta)}<br>`;
+                        //div_mostrar_conteudo.innerHTML = `<h1> Timidez: </h1>${resposta[0].timidez}`;
+                        div_auto_conhecimento.style.display = "none";
+                        div_mostrar_conteudo.style.display = "block";
+                        div_nome_usuario_autoconhecimento.innerHTML += resposta[0].nome;
+                        div_timidez_usuario_autoconhecimento.innerHTML += resposta[0].timidez;
+                        div_oratoria_usuario_autoconhecimento.innerHTML += resposta[0].oratoria;
+                        div_quebraDeExpectativa_usuario_autoconhecimento.innerHTML += resposta[0].QuebraDeExpectativa;
+                        div_solidao_usuario_autoconhecimento.innerHTML += resposta[0].solidao;
+                        div_saudade_usuario_autoconhecimento.innerHTML += resposta[0].saudade;
+                        div_felicidade_usuario_autoconhecimento.innerHTML += resposta[0].felicidade;
+                        div_conquista_usuario_autoconhecimento.innerHTML += resposta[0].conquista;
+                        //console.log(resposta[0].timidez);
 
-                        // alert(JSON.stringify(resposta))
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');

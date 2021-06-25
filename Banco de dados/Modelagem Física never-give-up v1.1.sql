@@ -98,6 +98,20 @@ insert into PessoaMelhor values
     'Agradecer a todos que me ajudaram na conquista e reconhecê-los', 2
 );
 
+SELECT 
+    usuario.nome,
+    timidez,
+    oratoria,
+    quebraDeExpectativa,
+    solidao,
+    saudade,
+    felicidade,
+    conquista
+    FROM autoconhecimento
+    INNER JOIN usuario
+    ON autoconhecimento.fkUsuario = Usuario.idUsuario
+    WHERE fkUsuario = 2
+    ORDER BY autoconhecimento.idAutoConhecimento DESC;
 
 -- SELECTS ↓
  select * from Usuario;

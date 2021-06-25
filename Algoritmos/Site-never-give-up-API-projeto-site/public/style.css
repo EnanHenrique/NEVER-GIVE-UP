@@ -11,7 +11,7 @@ textarea {
   outline:0;
 }
 
-/* Scrool bar */
+                                                    /* INICIO Scrool bar */
 
 ::-webkit-scrollbar {
   background-color: #222222;
@@ -27,9 +27,9 @@ textarea {
   background: linear-gradient(transparent, #3c793c);
 }
 
-/* Scrool bar */
+                                                    /* FIM Scrool bar */
 
-/* Inicio cabeçalho*/
+                                                    /* Inicio cabeçalho*/
 
 .conteudo_total {
   background-color: #3c793c;
@@ -108,9 +108,9 @@ textarea {
   color: #ffae00;
 }
 
-/* Fim cabeçalho*/
+                                                      /* Fim cabeçalho*/
 
-/* Pagina inicial */
+                                                    /* INICIO Pagina inicial */
 
 .div_never_give_up {
   border-radius: 3px;
@@ -216,9 +216,9 @@ textarea {
   font-size: 35px;
 }
 
-/* Pagina inicial */
+                                                  /* FIM Pagina inicial */
 
-/* Footer */
+                                                   /* INICIO Footer */
 
 .footer {
   text-align: center;
@@ -296,9 +296,9 @@ textarea {
   background-color: #3c793c;
 }
 
-                                            /* Footer */
+                                            /* FIM Footer */
                                             
-                                            /* Cadastro */
+                                            /* INICIO Cadastro */
 .formulario_cadastro, .formulario_login {
   border-radius: 2px;
   padding: 5%;
@@ -385,7 +385,10 @@ textarea {
   border: solid 1px #ffae00;
 }
 
-                                                /* PAGINA SOBRE */
+                                                /* FIM Cadastro */
+
+
+                                                /* INICIO PAGINA SOBRE */
 
 .div_quem_somos {
   color: white;
@@ -470,7 +473,10 @@ textarea {
   text-shadow: 0px 0px 4px #ffae00;
 }
 
-                                                  /* PAGINA FORUM */
+                                                  /* FIM PAGINA SOBRE */
+
+
+                                                  /* INICIO PAGINA FORUM */
 .div_auto_conhecimento {
   overflow: auto;
   color: #ffae00;
@@ -732,8 +738,26 @@ textarea {
   margin-top: 100px;
 }
 
+#div_mostrar_conteudo {
+  /*display: none;*/
+  margin-top: 70vh;
+  height: 130vh;
+  background-color: #ffffff;
+  text-align: center;
+}
 
-                                                      /* DIV OPINIAO DO USUARIO */
+
+
+#div_mostrar_conteudo div {
+  margin-top: 3%;
+  padding: 10px;
+}
+
+                                                      /* FIM PAGINA FORUM */
+
+
+
+                                                      /* INICIO DIV OPINIAO DO USUARIO */
 .div_opiniao_usuario {
   padding: 100px;
   height: 500px;
@@ -804,19 +828,19 @@ textarea {
 }
 
 
-                                                      /* DIV OPINIAO DO USUARIO */
+                                                      /* FIM DIV OPINIAO DO USUARIO */
 
-                                                      /* MOSTRAR TABELAS */
+                                                      /* INICIO MOSTRAR TABELAS */
 #div_mostrar_auto_conhecimento {
   margin-bottom: 100px;
   margin-top: 100px;
   height: 500px;
   background-color: red;
 }
-                                                      /* MOSTRAR TABELAS */
+                                                      /* FIM MOSTRAR TABELAS */
 
 
-                                                      /* Pagina estatistica */
+                                                      /* Inicio Pagina estatistica */
 .grafico {
   border-radius: 7px;
   margin-left: 10%;
@@ -837,5 +861,5 @@ textarea {
   height: 500px;
   margin: auto;
 }
-                                                      /* Pagina estatistica */
+                                                      /* Fim Pagina estatistica */
                                     

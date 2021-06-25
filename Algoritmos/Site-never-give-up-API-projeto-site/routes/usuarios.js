@@ -204,7 +204,7 @@ router.get('/:idUsuario', function(req, res, next) {
 	
 	var idUsuario = req.params.idUsuario;
 
-    let instrucaoSql = `SELECT 
+    var instrucaoSql = `SELECT 
     usuario.nome,
     timidez,
     oratoria,
